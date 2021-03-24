@@ -1,0 +1,25 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); 
+$PrimaryColor: #64782A;
+$SecondaryColor: #E3F9A2;
+$TertiaryColor: #CFF757;
+$FontColorA: #5b5c63;
+$FontColorB: #FFFFFF;
+$PrimaryFont: 'Montserrat';
+
+body {
+    font-family: $PrimaryFont;
+}
+
+.navbar {
+    background-color: $PrimaryColor;
+    .nav-item {
+        .nav-link {
+            color: $FontColorB;
+            text-decoration: none;
+
+            &:hover {
+                color: #d9d9d9;
+            }
+        }
+    }
+}

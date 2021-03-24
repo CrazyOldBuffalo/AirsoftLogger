@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+body {
+  font-family: "Montserrat";
+}
+
+.navbar {
+  background-color: #64782A;
+}
+.navbar .nav-item .nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.navbar .nav-item .nav-link:hover {
+  color: #d9d9d9;
+}
+
+/*# sourceMappingURL=styles.css.map */
