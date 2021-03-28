@@ -1,4 +1,5 @@
 ﻿using AirsoftLogger.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,6 +21,11 @@ namespace AirsoftLogger.Controllers
 
         public IActionResult Index()
         {
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddDays(7);
+            options.HttpOnly = true;
+            options.Secure = true;
+            HttpContext.Response.Cookies.Append("DarkMode", "true", options);
             return View();
         }
 

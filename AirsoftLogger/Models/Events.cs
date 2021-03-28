@@ -13,7 +13,7 @@ namespace AirsoftLogger.Models
         [Key]
         [ForeignKey("Site")]
         [Required]
-        public string SiteCode { get; set; }
+        public Site FKSITE { get; set; }
 
         [Key]
         [Required]
