@@ -19,6 +19,7 @@ namespace AirsoftLogger.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
             CookieOptions options = new CookieOptions();
@@ -30,6 +31,11 @@ namespace AirsoftLogger.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Sites()
         {
             return View();
         }
