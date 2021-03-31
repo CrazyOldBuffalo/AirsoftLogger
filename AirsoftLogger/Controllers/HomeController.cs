@@ -26,7 +26,7 @@ namespace AirsoftLogger.Controllers
             options.Expires = DateTime.Now.AddDays(7);
             options.HttpOnly = true;
             options.Secure = true;
-            HttpContext.Response.Cookies.Append("DarkMode", "true", options);
+            HttpContext.Response.Cookies.Append("DarkMode", "false", options);
             return View();
         }
 
