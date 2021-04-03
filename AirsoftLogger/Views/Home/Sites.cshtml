@@ -1,11 +1,48 @@
-﻿
+﻿@model IEnumerable<AirsoftLogger.Models.Site>
+
 @{
     ViewData["Title"] = "Sites";
 }
 
-<div class="text-center">
-    <h1>Airsoft Sites</h1>
-    <h2>View Current Airsoft Sites</h2>
-</div>
-
-
+<h1>Sites</h1>
+<h2>Below is the list of all available sites </h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Website)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+            <th> Options</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.SiteCode">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
