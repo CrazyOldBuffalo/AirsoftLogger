@@ -9,8 +9,6 @@ namespace AirsoftLogger.Models
 {
     public class Address
     {
-
-        [Range(0,10000, ErrorMessage = "Please Enter a Valid House Number")]
         public int Number { get; set; }
 
         [MaxLength(100, ErrorMessage = "Please Enter a Valid Street")]
@@ -22,6 +20,7 @@ namespace AirsoftLogger.Models
 
         [MaxLength(10, ErrorMessage = "Please Enter a Valid Postcode")]
         [MinLength(2, ErrorMessage = "")]
+        [Key]
         public string Postcode { get; set; }
     }
 }

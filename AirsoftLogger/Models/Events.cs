@@ -11,7 +11,6 @@ namespace AirsoftLogger.Models
     public class Events
     {
         [Key]
-        [ForeignKey("Site")]
         [Required]
         public Site FKSITE { get; set; }
 
