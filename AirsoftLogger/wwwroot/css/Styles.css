@@ -12,14 +12,16 @@ body {
   color: white;
 }
 
+.navbar .nav-item:hover {
+  background-color: #A4BF76;
+  border-radius: 25px;
+}
 .navbar .nav-item .nav-link {
   color: white;
   text-decoration: none;
 }
-
 .navbar .nav-item .nav-link:hover {
-  color: white;
-  background-color: #A4BF76;
+  color: black;
 }
 
 /* The switch - the box around the slider */

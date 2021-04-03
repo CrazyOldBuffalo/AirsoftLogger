@@ -18,14 +18,24 @@ body {
     color: white;
 }
 
-.navbar .nav-item .nav-link{
-  color: white;
-  text-decoration: none;
-}
+.navbar {
 
-.navbar .nav-item .nav-link:hover {
-  color: white;
-  background-color: $BodyColor;
+    .nav-item {
+        &:hover {
+            background-color: $BodyColor;
+            border-radius: 25px;
+            
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+
+            &:hover{
+                color: black;
+            }
+        }
+    }
 }
 
 /* The switch - the box around the slider */
