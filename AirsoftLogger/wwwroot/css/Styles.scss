@@ -11,32 +11,39 @@ body {
 }
 
 .navbar {
-  background-color: $HeadColor;
-}
+    background-color: $HeadColor;
 
-.navbar .navbar-brand {
-    color: white;
-}
-
-.navbar {
+    .navbar-brand {
+        color: white;
+    }
 
     .nav-item {
         &:hover {
             background-color: $BodyColor;
             border-radius: 25px;
-            
         }
 
         .nav-link {
             color: white;
             text-decoration: none;
 
-            &:hover{
+            &:hover {
                 color: black;
             }
         }
     }
 }
+
+.logincontainer {
+    .btn {
+        cursor: pointer;
+        background: $FourthColor;
+        border-color: $FourthColor;
+        .btn-primary {
+        }
+    }
+}
+
 
 /* The switch - the box around the slider */
 .switch {

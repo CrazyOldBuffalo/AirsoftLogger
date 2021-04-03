@@ -1,4 +1,5 @@
-﻿using AirsoftLogger.Models;
+﻿using AirsoftLogger.Data;
+using AirsoftLogger.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,13 +13,16 @@ namespace AirsoftLogger.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly DataContext _Context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, DataContext Context)
         {
+            _Context = Context;
             _logger = logger;
         }
-
 
         public IActionResult Index()
         {
@@ -30,14 +34,10 @@ namespace AirsoftLogger.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult Sites()
         {
-            return View();
+            List<Site> model = _Context.Sites.ToList();
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -7,11 +7,9 @@ body {
 .navbar {
   background-color: #5A613F;
 }
-
 .navbar .navbar-brand {
   color: white;
 }
-
 .navbar .nav-item:hover {
   background-color: #A4BF76;
   border-radius: 25px;
@@ -24,6 +22,11 @@ body {
   color: black;
 }
 
+.logincontainer .btn {
+  cursor: pointer;
+  background: #73655D;
+  border-color: #73655D;
+}
 /* The switch - the box around the slider */
 .switch {
   position: relative;

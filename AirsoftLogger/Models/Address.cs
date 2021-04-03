@@ -9,8 +9,6 @@ namespace AirsoftLogger.Models
 {
     public class Address
     {
-        public int Number { get; set; }
-
         [MaxLength(100, ErrorMessage = "Please Enter a Valid Street")]
         public string Street { get; set; }
 

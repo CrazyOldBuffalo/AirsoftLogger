@@ -9,7 +9,7 @@ namespace AirsoftLogger.Models
 {
     public class Site
     {
-        [StringLength(25)]
+        [StringLength(50)]
         public string SiteName { get; set; }
 
         [Required]
@@ -23,6 +23,7 @@ namespace AirsoftLogger.Models
 
         public string Website { get; set; }
 
-        public int Tel { get; set; }
+        [StringLength(15)]
+        public string Tel { get; set; }
     }
 }
