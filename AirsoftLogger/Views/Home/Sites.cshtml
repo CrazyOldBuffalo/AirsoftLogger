@@ -13,9 +13,6 @@
                 @Html.DisplayNameFor(model => model.SiteName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Postcode)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Website)
             </th>
             <th>
@@ -31,16 +28,13 @@
                 @Html.DisplayFor(modelItem => item.SiteName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Postcode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Website)
+                @Html.DisplayFor(modelItem => item.Website) 
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tel)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.SiteCode">Details</a> 
+                <a asp-controller="" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details </a> 
             </td>
         </tr>
 }

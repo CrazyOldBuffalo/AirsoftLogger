@@ -16,6 +16,7 @@ namespace AirsoftLogger.Controllers
 
         private readonly DataContext _Context;
         private readonly ILogger<HomeController> _logger;
+        //private static ViewModel _viewModel;
 
 
         public HomeController(ILogger<HomeController> logger, DataContext Context)
@@ -36,8 +37,14 @@ namespace AirsoftLogger.Controllers
 
         public IActionResult Sites()
         {
-            List<Site> model = _Context.Sites.ToList();
-            return View(model);
+            List<Site> Sitemodel = _Context.Sites.ToList();
+            return View(Sitemodel);
+        }
+
+        public IActionResult SiteDetails(string SiteCode)
+        {
+            Site SiteDetails = _Context.Sites.Find(SiteCode);
+            return View(SiteDetails);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -45,5 +52,6 @@ namespace AirsoftLogger.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+
+    }   
 }
