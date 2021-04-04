@@ -41,9 +41,9 @@ namespace AirsoftLogger.Controllers
             return View(Sitemodel);
         }
 
-        public IActionResult SiteDetails(string SiteCode)
+        public IActionResult SiteDetails(string id)
         {
-            Site SiteDetails = _Context.Sites.Find(SiteCode);
+            Site SiteDetails = _Context.Sites.Find(id);
             return View(SiteDetails);
         }
 
