@@ -1,6 +1,18 @@
-﻿@model AirsoftLogger.Models.Site
+﻿@model IEnumerable<AirsoftLogger.Models.SiteAddress>
 @{
-    ViewData["Title"] = Model.SiteCode;
+    ViewData["Title"] = "SiteDetails";
 }
-<h1>@Model.SiteCode - @Model.SiteName</h1>
+@foreach (var item in Model)
+{ 
+    <h1>@item.SiteCode - @item.SiteName</h1>
+    <h3> Address: </h3>
+    <h4>@item.Street
+        @item.City
+        @item.Postcode
+    </h4>
+    <h3>Website:</h3>
+    <a href="@item.Website"> @item.Website</a>
+    <h3>Tel </h3>
+    <h4>@item.Tel</h4>
+}
 <h4></h4>
