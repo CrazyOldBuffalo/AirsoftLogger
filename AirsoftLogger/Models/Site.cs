@@ -14,7 +14,6 @@ namespace AirsoftLogger.Models
 
         [Required]
         [StringLength(4)]
-        [DisplayName("Site Code")]
         [Key]
         public string SiteCode { get; set; }
 
