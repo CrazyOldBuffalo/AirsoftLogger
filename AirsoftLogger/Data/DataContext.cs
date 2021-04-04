@@ -11,7 +11,6 @@ namespace AirsoftLogger.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
         }
 
         public DbSet<Site> Sites { get; set; }
