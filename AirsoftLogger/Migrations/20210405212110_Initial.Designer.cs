@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirsoftLogger.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210405161257_Initial")]
+    [Migration("20210405212110_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,17 +42,23 @@ namespace AirsoftLogger.Migrations
 
             modelBuilder.Entity("AirsoftLogger.Models.Events", b =>
                 {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("Date");
 
                     b.Property<string>("SiteCode")
+                        .IsRequired()
                         .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<int>("Spaces")
                         .HasColumnType("int");
 
-                    b.HasKey("Date", "SiteCode");
+                    b.HasKey("EventID");
 
                     b.ToTable("Events");
                 });

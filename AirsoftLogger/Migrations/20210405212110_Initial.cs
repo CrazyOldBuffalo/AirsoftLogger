@@ -24,13 +24,15 @@ namespace AirsoftLogger.Migrations
                 name: "Events",
                 columns: table => new
                 {
+                    EventID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     SiteCode = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
                     Date = table.Column<DateTime>(type: "Date", nullable: false),
                     Spaces = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Events", x => new { x.Date, x.SiteCode });
+                    table.PrimaryKey("PK_Events", x => x.EventID);
                 });
 
             migrationBuilder.CreateTable(

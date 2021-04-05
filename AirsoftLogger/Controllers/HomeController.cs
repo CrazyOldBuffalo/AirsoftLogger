@@ -43,12 +43,14 @@ namespace AirsoftLogger.Controllers
 
         public IActionResult SiteDetails(string id)
         {
-            List<SiteAddress> modelList = new List<SiteAddress>();
+            List<SiteDetails> modelList = new List<SiteDetails>();
             var query = (from s in _Context.Sites
                          join a in _Context.Addresses
                          on s.Postcode equals a.Postcode
+                         join e in _Context.Events
+                         on s.SiteCode equals e.SiteCode
                          where s.SiteCode == id
-                         select new SiteAddress
+                         select new SiteDetails
                          {
                              SiteCode = s.SiteCode,
                              SiteName = s.SiteName,
@@ -56,11 +58,14 @@ namespace AirsoftLogger.Controllers
                              Tel = s.Tel,
                              Street = a.Street,
                              City = a.City,
-                             Postcode = a.Postcode
+                             Postcode = a.Postcode,
+                             EventID = e.EventID,
+                             Date = e.Date,
+                             Spaces = e.Spaces
                          }).ToList();
             foreach (var item in query)
             {
-                modelList.Add(new SiteAddress()
+                modelList.Add(new SiteDetails()
                 {
                     SiteCode = item.SiteCode,
                     SiteName = item.SiteName,
@@ -68,15 +73,24 @@ namespace AirsoftLogger.Controllers
                     Tel = item.Tel,
                     Street = item.Street,
                     City = item.City,
-                    Postcode = item.Postcode
+                    Postcode = item.Postcode,
+                    EventID = item.EventID,
+                    Date = item.Date,
+                    Spaces = item.Spaces
+
                 });
 
             }
-            Address Test = _Context.Addresses.Find(_Context.Sites.Find(id).Postcode);
-            Site SiteDetails = _Context.Sites.Find(id);
-            return View(query);
+            if (query.Count() != 0)
+            {
+                return View(query);
+            }
+            else
+            {
+                List<Site> sites = _Context.Sites.ToList();
+                return View("Sites", sites);
+            }
         }
-
 
         public IActionResult Search(String SearchString)
         {
@@ -99,6 +113,21 @@ namespace AirsoftLogger.Controllers
         {
             List<Events> eventlist = _Context.Events.ToList();
             return View(eventlist);
+        }
+
+        public IActionResult UpdateEvents(SiteDetails siteDetails)
+        {
+
+            Events eventUpdate = new Events
+            {
+                EventID = siteDetails.EventID,
+                SiteCode = siteDetails.SiteCode,
+                Date = siteDetails.Date,
+                Spaces = siteDetails.Spaces - 1
+            };
+            _Context.Events.Update(eventUpdate);
+            _Context.SaveChanges();
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

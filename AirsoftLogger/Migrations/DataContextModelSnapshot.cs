@@ -40,17 +40,23 @@ namespace AirsoftLogger.Migrations
 
             modelBuilder.Entity("AirsoftLogger.Models.Events", b =>
                 {
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("Date");
 
                     b.Property<string>("SiteCode")
+                        .IsRequired()
                         .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
                     b.Property<int>("Spaces")
                         .HasColumnType("int");
 
-                    b.HasKey("Date", "SiteCode");
+                    b.HasKey("EventID");
 
                     b.ToTable("Events");
                 });
