@@ -13,6 +13,12 @@ namespace AirsoftLogger.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Events>()
+                .HasKey(c => new { c.Date, c.SiteCode  });
+        }
+
         public DbSet<Site> Sites { get; set; }
 
         public DbSet<Address> Addresses { get; set; }

@@ -41,18 +41,16 @@ namespace AirsoftLogger.Migrations
             modelBuilder.Entity("AirsoftLogger.Models.Events", b =>
                 {
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("Date");
 
-                    b.Property<string>("FKSITESiteCode")
+                    b.Property<string>("SiteCode")
+                        .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
-                    b.Property<string>("Type")
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
+                    b.Property<int>("Spaces")
+                        .HasColumnType("int");
 
-                    b.HasKey("Date");
-
-                    b.HasIndex("FKSITESiteCode");
+                    b.HasKey("Date", "SiteCode");
 
                     b.ToTable("Events");
                 });
@@ -81,15 +79,6 @@ namespace AirsoftLogger.Migrations
                     b.HasKey("SiteCode");
 
                     b.ToTable("Sites");
-                });
-
-            modelBuilder.Entity("AirsoftLogger.Models.Events", b =>
-                {
-                    b.HasOne("AirsoftLogger.Models.Site", "FKSITE")
-                        .WithMany()
-                        .HasForeignKey("FKSITESiteCode");
-
-                    b.Navigation("FKSITE");
                 });
 #pragma warning restore 612, 618
         }

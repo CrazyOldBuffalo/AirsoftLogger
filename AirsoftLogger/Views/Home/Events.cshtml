@@ -1,3 +1,10 @@
-﻿
-@{      ViewData["Title"] = "Events";
+﻿@model IEnumerable<AirsoftLogger.Models.Events>;
+@{ ViewData["Title"] = "Events";
+}
+
+@foreach (var item in Model)
+{
+    <p>@item.SiteCode</p>
+    <p>@item.Date.ToShortDateString()</p>
+    <p>@item.Spaces</p>
 }

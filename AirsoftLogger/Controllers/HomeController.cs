@@ -77,6 +77,30 @@ namespace AirsoftLogger.Controllers
             return View(query);
         }
 
+
+        public IActionResult Search(String SearchString)
+        {
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                var sites = from s in _Context.Sites
+                            where s.SiteName.Contains(SearchString)
+                            select s;
+                List<Site> searchSites = sites.ToList();
+                return View("Sites", searchSites);
+            }
+            else
+            {
+                List<Site> sitemodel = _Context.Sites.ToList();
+                return View("Sites", sitemodel);
+            }
+        }
+
+        public IActionResult Events()
+        {
+            List<Events> eventlist = _Context.Events.ToList();
+            return View(eventlist);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

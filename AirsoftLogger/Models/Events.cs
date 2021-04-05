@@ -12,13 +12,14 @@ namespace AirsoftLogger.Models
     {
         [Key]
         [Required]
-        public Site FKSITE { get; set; }
+        [StringLength(4)]
+        public string SiteCode { get; set; }
 
         [Key]
         [Required]
+        [Column(TypeName = "Date")]
         public DateTime Date { get; set; }
 
-        [StringLength(75)]
-        public string Type { get; set; }
+        public int Spaces { get; set; }
     }
 }
