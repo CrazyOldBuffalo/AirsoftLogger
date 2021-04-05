@@ -1,3 +1,39 @@
-﻿
-@{      ViewData["Title"] = "Events";
+﻿@model IEnumerable<AirsoftLogger.Models.Events>;
+@{ ViewData["Title"] = "Events";
 }
+
+<table class="EventTable table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spaces)
+            </th>
+            <th> Booking </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiteCode)
+                </td>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Spaces)
+                </td>
+                <td>
+                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

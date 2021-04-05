@@ -13,6 +13,7 @@ namespace AirsoftLogger.Data
         {
         }
 
+
         public DbSet<Site> Sites { get; set; }
 
         public DbSet<Address> Addresses { get; set; }

@@ -6,8 +6,8 @@ $FourthColor: #73655D;
 
 
 body {
-  font-family: "Montserrat";
-  background-color: $BodyColor;
+    font-family: "Montserrat";
+    background-color: $BodyColor;
 }
 
 .navbar {
@@ -35,9 +35,7 @@ body {
 }
 
 .header {
-    height: 80vh;
     .text-center {
-        height: 100%;
         .display-2 {
             font-size: 4em;
             padding: 4rem;
@@ -65,6 +63,50 @@ body {
         }
     }
 }
+.slideshow-container {
+    z-index:1;
+    @media only screen and (max-width: 300px) {
+        .text {
+            font-size: 11px
+        }
+    }
+    padding: 4em;
+    max-width: 50vw;
+    margin: auto;
+
+    .mySlides {
+        display: none;
+    }
+
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: .5
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .5
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 4.5s;
+    
+    animation-name: fade;
+    animation-duration: 4.5s;
+}
+
 
 
 /*# sourceMappingURL=Styles.scss.map */

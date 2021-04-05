@@ -1,18 +1,44 @@
-﻿@model IEnumerable<AirsoftLogger.Models.SiteAddress>
+﻿@model IEnumerable<AirsoftLogger.Models.SiteDetails>
 @{
     ViewData["Title"] = "SiteDetails";
 }
-@foreach (var item in Model)
-{ 
-    <h1>@item.SiteCode - @item.SiteName</h1>
-    <h3> Address: </h3>
-    <h4>@item.Street
-        @item.City
-        @item.Postcode
-    </h4>
-    <h3>Website:</h3>
-    <a href="@item.Website"> @item.Website</a>
-    <h3>Tel </h3>
-    <h4>@item.Tel</h4>
-}
-<h4></h4>
+<h3>@Html.DisplayFor(a => a.FirstOrDefault().SiteCode) - @Html.DisplayFor(a => a.FirstOrDefault().SiteName)</h3>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spaces)
+            </th>
+            <th> Book </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Spaces)
+                </td>
+                <td>
+                    <div class="Book">
+                        <form method="post" asp-controller="Home" asp-action="UpdateEvents">
+                            <input type="hidden" name="EventID" value="@item.EventID" />
+                            <input type="hidden" name="Date" value="@item.Date" />
+                            <input type="hidden" name="SiteCode" value="@item.SiteCode"/>
+                            <input type="hidden" name="Spaces" value="@item.Spaces" />
+                            <input type="submit" value="Book"/>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirsoftLogger.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210403133746_initial")]
-    partial class initial
+    [Migration("20210405212110_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,6 @@ namespace AirsoftLogger.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
                     b.Property<string>("Street")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -45,19 +42,23 @@ namespace AirsoftLogger.Migrations
 
             modelBuilder.Entity("AirsoftLogger.Models.Events", b =>
                 {
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("EventID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FKSITESiteCode")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("SiteCode")
+                        .IsRequired()
+                        .HasMaxLength(4)
                         .HasColumnType("nvarchar(4)");
 
-                    b.Property<string>("Type")
-                        .HasMaxLength(75)
-                        .HasColumnType("nvarchar(75)");
+                    b.Property<int>("Spaces")
+                        .HasColumnType("int");
 
-                    b.HasKey("Date");
-
-                    b.HasIndex("FKSITESiteCode");
+                    b.HasKey("EventID");
 
                     b.ToTable("Events");
                 });
@@ -73,11 +74,12 @@ namespace AirsoftLogger.Migrations
                         .HasColumnType("nvarchar(8)");
 
                     b.Property<string>("SiteName")
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Tel")
-                        .HasColumnType("int");
+                    b.Property<string>("Tel")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
@@ -85,15 +87,6 @@ namespace AirsoftLogger.Migrations
                     b.HasKey("SiteCode");
 
                     b.ToTable("Sites");
-                });
-
-            modelBuilder.Entity("AirsoftLogger.Models.Events", b =>
-                {
-                    b.HasOne("AirsoftLogger.Models.Site", "FKSITE")
-                        .WithMany()
-                        .HasForeignKey("FKSITESiteCode");
-
-                    b.Navigation("FKSITE");
                 });
 #pragma warning restore 612, 618
         }

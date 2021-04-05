@@ -22,12 +22,6 @@ body {
   color: black;
 }
 
-.header {
-  height: 80vh;
-}
-.header .text-center {
-  height: 100%;
-}
 .header .text-center .display-2 {
   font-size: 4em;
   padding: 4rem;
@@ -48,6 +42,44 @@ body {
   background: #73655D;
   border-color: #73655D;
 }
+.slideshow-container {
+  z-index: -1;
+  padding: 4em;
+  max-width: 50vw;
+  margin: auto;
+}
+@media only screen and (max-width: 300px) {
+  .slideshow-container .text {
+    font-size: 11px;
+  }
+}
+.slideshow-container .mySlides {
+  display: none;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 4.5s;
+  animation-name: fade;
+  animation-duration: 4.5s;
+}
+
 /*# sourceMappingURL=Styles.scss.map */
 
 /*# sourceMappingURL=Styles.css.map */
