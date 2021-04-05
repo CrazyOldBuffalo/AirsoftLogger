@@ -7,14 +7,12 @@
         var slides = $(".mySlides");
         console.log(slides.length)
         for (i = 0; i < slides.length; i++) {
-            slides.eq(i).hide("fast");
+            slides.eq(i).hide();
         }
         slideIndex++;
-        console.log(slideIndex)
-        console.log(slides.length)
         if (slideIndex > slides.length) { slideIndex = 1 }
         slides.eq(slideIndex - 1).show();
-        setTimeout(showSlides, 3000);
+        setTimeout(showSlides, 4000);
     }
 });
 

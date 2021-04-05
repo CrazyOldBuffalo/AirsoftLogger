@@ -64,6 +64,7 @@ body {
     }
 }
 .slideshow-container {
+    z-index:1;
     @media only screen and (max-width: 300px) {
         .text {
             font-size: 11px
@@ -100,10 +101,10 @@ body {
 
 .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 5.5s;
+    -webkit-animation-duration: 4.5s;
     
     animation-name: fade;
-    animation-duration: 5.5s;
+    animation-duration: 4.5s;
 }
 
 

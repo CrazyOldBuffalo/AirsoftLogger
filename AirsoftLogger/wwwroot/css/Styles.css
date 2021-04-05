@@ -43,6 +43,7 @@ body {
   border-color: #73655D;
 }
 .slideshow-container {
+  z-index: -1;
   padding: 4em;
   max-width: 50vw;
   margin: auto;
@@ -55,20 +56,10 @@ body {
 .slideshow-container .mySlides {
   display: none;
 }
-.slideshow-container .carousel-caption {
-  color: #f2f2f2;
-  width: 20rem;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 20px;
-  text-align: center;
-  background-color: dimgrey;
-}
 
 @-webkit-keyframes fade {
   from {
-    opacity: 0.4;
+    opacity: 0.5;
   }
   to {
     opacity: 1;
@@ -76,7 +67,7 @@ body {
 }
 @keyframes fade {
   from {
-    opacity: 0.4;
+    opacity: 0.5;
   }
   to {
     opacity: 1;
@@ -84,9 +75,9 @@ body {
 }
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 4.5s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 4.5s;
 }
 
 /*# sourceMappingURL=Styles.scss.map */
