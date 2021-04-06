@@ -3,19 +3,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 class="fullWidth">Sign In</h2>
-<section>
-    <form asp-controller="Security" asp-action="Index" method="post">
+
+<section class="Login fadeInDown">
+    <h2 class="fadeIn first">Sign In</h2>
+    <form class="fadeIn Second" asp-controller="Security" asp-action="Index" method="post">
         <div>
             <label asp-for="UserName"></label>
             <input class="username" type="text" asp-for="UserName" />
         </div>
         <div>
             <label asp-for="Password"></label>
-            <input class="password" type="password" asp-for="Password" />
+            <input class="fadeIn Third" type="password" asp-for="Password" />
         </div>
         <div>
-            <button type="submit" class="signin" onclick="return logincheck()">Sign In</button>
+            <button type="submit" class="fadeIn fourth" onclick="return logincheck()">Sign In</button>
         </div>
         <div asp-validation-summary="All" class="message"></div>
     </form>
