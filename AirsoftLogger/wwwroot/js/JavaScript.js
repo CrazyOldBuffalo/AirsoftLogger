@@ -29,6 +29,22 @@ function logincheck() {
         alert("Please Enter A Username!")
         return false;
     }
+}
 
+var TopofPage = document.getElementById("Top");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        TopofPage.style.display = "block";
+    } else {
+        TopofPage.style.display = "none";
+    }
+}
+
+function toppage() {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
 }
