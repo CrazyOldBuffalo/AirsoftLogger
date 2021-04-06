@@ -37,6 +37,10 @@ namespace AirsoftLogger.Controllers
             return View();
         }
 
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
