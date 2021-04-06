@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authentication;
 using AirsoftLogger.Security;
 using AirsoftLogger.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AirsoftLogger.Controllers
 {
@@ -26,11 +28,6 @@ namespace AirsoftLogger.Controllers
             this.signInManager = signInManager;
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
-
 
         public IActionResult Index()
         {
@@ -43,34 +40,12 @@ namespace AirsoftLogger.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(Admin obj)
+        public IActionResult Logout()
         {
-            if(ModelState.IsValid)
-            {
-                if(!roleManager.RoleExistsAsync("Manager").Result)
-                {
-                    AppIdentityRole role = new AppIdentityRole();
-                    role.Name = "Manager";
-                    IdentityResult roleResult = roleManager.CreateAsync(role).Result;
-                }
-
-                AppIdentityUser user = new AppIdentityUser();
-                user.UserName = obj.UserName;
-                user.Email = obj.Email;
-
-                IdentityResult result = userManager.CreateAsync(user, obj.Password).Result;
-                if (result.Succeeded)
-                {
-                    userManager.AddToRoleAsync(user, "Manager").Wait();
-                    return RedirectToAction("SignIn", "Security");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid user Details");
-                }
-            }
-            return View(obj);
+            signInManager.SignOutAsync().Wait();
+            return RedirectToAction("Index", "Security");
         }
 
         [HttpPost]

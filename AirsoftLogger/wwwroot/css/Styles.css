@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+html {
+  width: 100%;
+}
+
 body {
   font-family: "Montserrat";
   background-color: #A4BF76;
+  width: 100%;
 }
 
 .navbar {
   background-color: #5A613F;
+  width: 100%;
 }
 .navbar .navbar-brand {
   color: white;
@@ -202,24 +208,24 @@ body {
   animation-duration: 1s;
 }
 .Login .fadeIn .first {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.Login .fadeIn .second {
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
-.Login .fadeIn .second {
+.Login .fadeIn .third {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-.Login .fadeIn .third {
+.Login .fadeIn .fourth {
   -webkit-animation-delay: 0.8s;
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
-}
-.Login .fadeIn .fourth {
-  -webkit-animation-delay: 0.9s;
-  -moz-animation-delay: 0.9s;
-  animation-delay: 0.9s;
 }
 
 /*# sourceMappingURL=Styles.scss.map */

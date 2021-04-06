@@ -4,7 +4,14 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/Scroll.js"></script>
 <script src="~/js/Search.js"></script>
-<table class="EventTable table">
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+{
+    <div class="adminEventAdd">
+        <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateEvent"> Add New Event <i fas fa-plus></i></a>
+    </div>
+}
+<table class="EventTable table table-striped table-responsive">
     <thead class="thead-dark">
         <tr>
             <th>
@@ -33,7 +40,11 @@
                     @Html.DisplayFor(modelItem => item.Spaces)
                 </td>
                 <td>
-                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details </a>
+                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+                    {
+                        <a asp-controller="CMS" asp-action="SiteDelete" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                    }
                 </td>
             </tr>
         }

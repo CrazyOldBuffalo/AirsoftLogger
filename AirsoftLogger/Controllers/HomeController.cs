@@ -137,12 +137,15 @@ namespace AirsoftLogger.Controllers
             }
         }
 
-        public IActionResult Events()
+        public IActionResult Events(int? page)
         {
             List<Events> eventlist = _Context.Events.ToList();
+
+
             return View(eventlist);
         }
 
+        [ValidateAntiForgeryToken]
         public IActionResult UpdateEvents(SiteDetails siteDetails)
         {
 

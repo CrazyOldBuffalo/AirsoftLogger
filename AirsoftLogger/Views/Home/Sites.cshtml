@@ -21,15 +21,17 @@
     </form>
 </div>
 
-<h2>Below is the list of all available sites </h2>
 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
 {
-    <div class="adminadd">
-        <a asp-controller="CMS" asp-action="Add"> Add New </a>
+    <div class="adminSiteadd">
+        <a asp-controller="CMS" asp-action="CreateSite"> Add New <i fas fa-plus></i></a>
     </div>
 }
 
-<table class="table">
+<h2>Below is the list of all available sites </h2>
+
+
+<table class="SiteTable table table-striped table-responsive">
     <thead class="thead-dark">
         <tr>
             <th>
@@ -58,11 +60,11 @@
                     @Html.DisplayFor(modelItem => item.Tel)
                 </td>
                 <td>
-                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details </a>
+                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
-                        <a asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update </a>
-                        <a asp-controller="CMS" asp-action="Delete" asp-route-id="@item.SiteCode"> Delete</a>
+                        <a asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update <i class="fas fa-pencil-alt"></i> </a>
+                        <a asp-controller="CMS" asp-action="DeleteSite" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
                     }
                 </td>
             </tr>

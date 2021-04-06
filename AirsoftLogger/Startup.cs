@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AirsoftLogger.Security;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace AirsoftLogger
 {
@@ -31,10 +33,14 @@ namespace AirsoftLogger
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppIdentityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<AppIdentityUser, AppIdentityRole>().AddEntityFrameworkStores<AppIdentityContext>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+                CookiePolicyOptions policyOptions = new CookiePolicyOptions { MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.Strict };
+            });
             services.ConfigureApplicationCookie(opt =>
             {
-                opt.LoginPath = "/Admin/Index";
-                opt.AccessDeniedPath = "/Admin/AccessDenied";
+                opt.LoginPath = "/Security/Index";
+                opt.AccessDeniedPath = "/Security/AccessDenied";
             });
         }
 
@@ -57,7 +63,11 @@ namespace AirsoftLogger
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            var CookiePolicy = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+            };
+            app.UseCookiePolicy(CookiePolicy);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
