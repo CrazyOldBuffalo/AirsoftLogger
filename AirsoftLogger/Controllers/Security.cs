@@ -27,11 +27,6 @@ namespace AirsoftLogger.Controllers
             this.signInManager = signInManager;
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
-
 
         public IActionResult Index()
         {
@@ -45,37 +40,6 @@ namespace AirsoftLogger.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(Admin obj)
-        {
-            if(ModelState.IsValid)
-            {
-                if(!roleManager.RoleExistsAsync("Manager").Result)
-                {
-                    AppIdentityRole role = new AppIdentityRole();
-                    role.Name = "Manager";
-                    IdentityResult roleResult = roleManager.CreateAsync(role).Result;
-                }
-
-                AppIdentityUser user = new AppIdentityUser();
-                user.UserName = obj.UserName;
-                user.Email = obj.Email;
-
-                IdentityResult result = userManager.CreateAsync(user, obj.Password).Result;
-                if (result.Succeeded)
-                {
-                    userManager.AddToRoleAsync(user, "Manager").Wait();
-                    return RedirectToAction("SignIn", "Security");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid user Details");
-                }
-            }
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Index(SignIn signIn)
         {
             if(ModelState.IsValid)
@@ -83,11 +47,6 @@ namespace AirsoftLogger.Controllers
                 var result = signInManager.PasswordSignInAsync(signIn.UserName, signIn.Password, false, false).Result;
                 if (result.Succeeded)
                 {
-                    Response.Cookies.Append("AdminLoggedIn", "True", new CookieOptions()
-                    {
-                        Expires = DateTime.UtcNow.AddMinutes(30)
-                        
-                    });
                     return RedirectToAction("Index", "Home");
                 }
                 else
