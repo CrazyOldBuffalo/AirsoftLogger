@@ -1,7 +1,23 @@
-﻿
+﻿@model SignIn
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h2 class="fullWidth">Sign In</h2>
+<section>
+    <form asp-controller="Security" asp-action="Index" method="post">
+        <div>
+            <label asp-for="UserName"></label>
+            <input class="username" type="text" asp-for="UserName" />
+        </div>
+        <div>
+            <label asp-for="Password"></label>
+            <input class="password" type="password" asp-for="Password" />
+        </div>
+        <div>
+            <button type="submit" class="signin">Sign In</button>
+        </div>
+        <div asp-validation-summary="All" class="message"></div>
+    </form>
+</section>
 

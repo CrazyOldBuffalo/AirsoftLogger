@@ -72,5 +72,24 @@ namespace AirsoftLogger.Controllers
             }
             return View(obj);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(SignIn signIn)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = signInManager.PasswordSignInAsync(signIn.UserName, signIn.Password, false, false).Result;
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid Username/Password");
+                }
+            }
+            return View(signIn);
+        }
     }
 }
