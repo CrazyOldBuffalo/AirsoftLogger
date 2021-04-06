@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<AirsoftLogger.Models.Events>;
 @{ ViewData["Title"] = "Events";
 }
-
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/Scroll.js"></script>
+<script src="~/js/Search.js"></script>
 <table class="EventTable table">
     <thead class="thead-dark">
         <tr>
@@ -37,3 +39,4 @@
         }
     </tbody>
 </table>
+<button onclick="toppage()" id="Top" title="Go to top">Back To Top</button>
