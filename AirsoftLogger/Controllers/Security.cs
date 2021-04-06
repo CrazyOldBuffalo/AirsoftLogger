@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using AirsoftLogger.Security;
 using AirsoftLogger.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 namespace AirsoftLogger.Controllers
 {
@@ -82,6 +83,11 @@ namespace AirsoftLogger.Controllers
                 var result = signInManager.PasswordSignInAsync(signIn.UserName, signIn.Password, false, false).Result;
                 if (result.Succeeded)
                 {
+                    Response.Cookies.Append("AdminLoggedIn", "True", new CookieOptions()
+                    {
+                        Expires = DateTime.UtcNow.AddMinutes(30)
+                        
+                    });
                     return RedirectToAction("Index", "Home");
                 }
                 else

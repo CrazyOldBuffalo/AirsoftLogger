@@ -11,6 +11,10 @@ namespace AirsoftLogger.Controllers
     [Authorize(Roles = "Manager")]
     public class CMS : Controller
     {
-        
+
+        public IActionResult EditSite(string SiteCode)
+        {
+            return View();
+        }
     }
 }
