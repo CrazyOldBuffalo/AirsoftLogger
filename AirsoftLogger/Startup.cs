@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AirsoftLogger.Security;
 
 namespace AirsoftLogger
 {
@@ -28,6 +29,13 @@ namespace AirsoftLogger
             services.AddControllersWithViews();
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<AppIdentityUser, AppIdentityRole>().AddEntityFrameworkStores<AppIdentityContext>();
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.LoginPath = "/Admin/Index";
+                opt.AccessDeniedPath = "/Admin/AccessDenied";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +55,7 @@ namespace AirsoftLogger
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
