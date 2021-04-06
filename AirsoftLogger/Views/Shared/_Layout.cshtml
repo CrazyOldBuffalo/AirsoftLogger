@@ -31,9 +31,20 @@
                     </ul>
 
                 </div>
-                <div class="logincontainer">
-                    <a class="btn btn-primary" asp-area="" asp-controller="Security" asp-action="Index"> Login <i class="fas fa-sign-in-alt"></i> </a>
+                @if (!User.Identity.IsAuthenticated && !User.IsInRole("Manager"))
+                {
+                    <div class="logincontainer">
+                        <a class="btn btn-primary" asp-area="" asp-controller="Security" asp-action="Index"> Login <i class="fas fa-sign-in-alt"></i> </a>
+                    </div>
+                }
+                else
+                {
+                <div class="logoutcontainer">
+                    <form asp-controller="Security" asp-action="Logout" method="post">
+                        <button class="btn btn-primary" type="submit">Logout <i class="fas fa-sign-out-alt"></i></button>
+                    </form>
                 </div>
+                }
             </div>
         </nav>
     </header>

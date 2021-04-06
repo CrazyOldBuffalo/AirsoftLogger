@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+html {
+  width: 100%;
+}
+
 body {
   font-family: "Montserrat";
   background-color: #A4BF76;
+  width: 100%;
 }
 
 .navbar {
   background-color: #5A613F;
+  width: 100%;
 }
 .navbar .navbar-brand {
   color: white;

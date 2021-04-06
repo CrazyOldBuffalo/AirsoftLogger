@@ -4,15 +4,19 @@ $BodyColor: #A4BF76;
 $ThirdColor: #D6C2A3;
 $FourthColor: #73655D;
 
+html {
+    width: 100%;
+}
 
 body {
     font-family: "Montserrat";
     background-color: $BodyColor;
+    width: 100%;
 }
 
 .navbar {
     background-color: $HeadColor;
-
+    width: 100%;
     .navbar-brand {
         color: white;
     }

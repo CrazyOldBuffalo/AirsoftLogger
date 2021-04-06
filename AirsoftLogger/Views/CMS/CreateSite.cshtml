@@ -1,2 +1,52 @@
-﻿@{
+﻿@model AirsoftLogger.Models.AddSite
+@{
+    ViewData["Title"] = "Add Site";
 }
+<form class="CreateSiteForm" asp-controller="CMS" asp-action="CreateSite">
+    <div class="form-group">
+        <label asp-for="SiteCode">Site Code</label>
+        <input type="text" asp-for="SiteCode" />
+        <span asp-validation-for="SiteCode" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SiteName">Site Name</label>
+        <input type="text" asp-for="SiteName" />
+        <span asp-validation-for="SiteName" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Postcode">Postcode</label>
+        <input type="text" asp-for="Postcode" />
+        <span asp-validation-for="Postcode" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Tel">Telephone</label>
+        <input type="tel" asp-for="Tel" />
+        <span asp-validation-for="Tel" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Website">Website</label>
+        <input type="url" asp-for="Website" />
+        <span asp-validation-for="Website" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Street">Street</label>
+        <input type="text" asp-for="Street" />
+        <span asp-validation-for="Street" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="City">City</label>
+        <input type="text" asp-for="City" />
+        <span asp-validation-for="City" class="error"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Create" class="add" />
+    </div>
+
+</form>

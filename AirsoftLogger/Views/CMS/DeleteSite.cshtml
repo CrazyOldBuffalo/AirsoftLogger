@@ -1,0 +1,21 @@
+﻿@model IEnumerable<AirsoftLogger.Models.SiteDetails>
+@{
+    ViewData["Title"] = "Delete Site";
+}
+<form method="post">
+
+    <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
+    <input type="hidden" name="Tel" value="@Model.FirstOrDefault().Tel" />
+    <input type="hidden" name="City" value="@Model.FirstOrDefault().City" />
+    <input type="hidden" name="Street" value="@Model.FirstOrDefault().Street" />
+    <input type="hidden" name="SiteName" value="@Model.FirstOrDefault().SiteName" />
+    <input type="hidden" name="Website" value="@Model.FirstOrDefault().Website" />
+    <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
+
+    <p>Delete film @Model.FirstOrDefault().SiteName?</p>
+
+    <p><input type="submit" value="Delete" class="delete" /></p>
+
+    <p><a asp-controller="CMS" asp-action="Index" class="add">Keep</a><br></p>
+
+</form>

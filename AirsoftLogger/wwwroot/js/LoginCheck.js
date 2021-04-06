@@ -1,6 +1,6 @@
 ﻿function logincheck() {
-    var Password = $(".password").val();
-    var username = $(".username").val();
+    var Password = $(".passwordinput").val();
+    var username = $(".usernameinput").val();
 
     if (username == '' && Password == '') {
         alert("Please Enter A Username & Password!")

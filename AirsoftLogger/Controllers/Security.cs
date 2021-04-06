@@ -9,6 +9,7 @@ using AirsoftLogger.Security;
 using AirsoftLogger.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AirsoftLogger.Controllers
 {
@@ -36,6 +37,15 @@ namespace AirsoftLogger.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Logout()
+        {
+            signInManager.SignOutAsync().Wait();
+            return RedirectToAction("Index", "Security");
         }
 
         [HttpPost]
