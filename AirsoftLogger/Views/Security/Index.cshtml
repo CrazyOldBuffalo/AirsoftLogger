@@ -15,7 +15,7 @@
             <input class="password" type="password" asp-for="Password" />
         </div>
         <div>
-            <button type="submit" class="signin">Sign In</button>
+            <button type="submit" class="signin" onclick="return logincheck()">Sign In</button>
         </div>
         <div asp-validation-summary="All" class="message"></div>
     </form>
