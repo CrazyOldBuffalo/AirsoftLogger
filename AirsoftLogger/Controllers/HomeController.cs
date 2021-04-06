@@ -94,11 +94,11 @@ namespace AirsoftLogger.Controllers
 
         public IActionResult Search(String SearchString)
         {
+            var sites = from s in _Context.Sites
+                        select s;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                var sites = from s in _Context.Sites
-                            where s.SiteName.Contains(SearchString)
-                            select s;
+                sites = sites.Where(s => s.SiteName.Contains(SearchString) || s.Postcode.Contains(SearchString));
                 List<Site> searchSites = sites.ToList();
                 return View("Sites", searchSites);
             }

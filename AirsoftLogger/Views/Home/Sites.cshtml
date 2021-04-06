@@ -13,8 +13,8 @@
     
     <form asp-action="search" method="get">
         <h2> Search </h2>
-        <label for="SearchString">Search by SiteName: </label> <input type="text" name="SearchString" id="SearchString"/>
-        <input type="submit" value="filter" />
+        <label for="SearchString">Search For Site: </label> <input type="text" name="SearchString" id="SearchString"/>
+        <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()"/>
     </form>
 </div>
 

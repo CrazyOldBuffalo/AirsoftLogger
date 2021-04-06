@@ -14,7 +14,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Spaces)
             </th>
-            <th> Book </th>
+            <th> Booking Details </th>
         </tr>
     </thead>
     <tbody>
@@ -28,15 +28,22 @@
                     @Html.DisplayFor(modelItem => item.Spaces)
                 </td>
                 <td>
-                    <div class="Book">
-                        <form method="post" asp-controller="Home" asp-action="UpdateEvents">
-                            <input type="hidden" name="EventID" value="@item.EventID" />
-                            <input type="hidden" name="Date" value="@item.Date" />
-                            <input type="hidden" name="SiteCode" value="@item.SiteCode"/>
-                            <input type="hidden" name="Spaces" value="@item.Spaces" />
-                            <input type="submit" value="Book"/>
-                        </form>
-                    </div>
+                    @if (item.Spaces > 0)
+                    {
+                        <div class="Book">
+                            <form method="post" asp-controller="Home" asp-action="UpdateEvents">
+                                <input type="hidden" name="EventID" value="@item.EventID" />
+                                <input type="hidden" name="Date" value="@item.Date" />
+                                <input type="hidden" name="SiteCode" value="@item.SiteCode" />
+                                <input type="hidden" name="Spaces" value="@item.Spaces" />
+                                <input type="submit" value="Book" onclick="BookingConfirmed()"/>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="Book">Fully Booked</p>
+                    }
                 </td>
             </tr>
         }
