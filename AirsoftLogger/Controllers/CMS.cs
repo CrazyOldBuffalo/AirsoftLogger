@@ -36,7 +36,31 @@ namespace AirsoftLogger.Controllers
             return View();
         }
         
+        public IActionResult CreateEvent()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateEvent(AddEvent addEvent)
+        {
+            if(ModelState.IsValid)
+            {
+                Events newEvent = new Events()
+                {
+                    SiteCode = addEvent.SiteCode,
+                    Date = addEvent.Date,
+                    Spaces = addEvent.Spaces
+                };
+                _Context.Events.Add(newEvent);
+                _Context.SaveChanges();
+                return RedirectToAction("Events", "Home");
+            }
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteSite(string id)
         {
             List<SiteDetails> modelList = new List<SiteDetails>();

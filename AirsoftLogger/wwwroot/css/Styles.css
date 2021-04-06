@@ -208,24 +208,24 @@ body {
   animation-duration: 1s;
 }
 .Login .fadeIn .first {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.Login .fadeIn .second {
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
-.Login .fadeIn .second {
+.Login .fadeIn .third {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-.Login .fadeIn .third {
+.Login .fadeIn .fourth {
   -webkit-animation-delay: 0.8s;
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
-}
-.Login .fadeIn .fourth {
-  -webkit-animation-delay: 0.9s;
-  -moz-animation-delay: 0.9s;
-  animation-delay: 0.9s;
 }
 
 /*# sourceMappingURL=Styles.scss.map */

@@ -1,7 +1,29 @@
-﻿
+﻿@model AirsoftLogger.Models.AddEvent
 @{
     ViewData["Title"] = "CreateEvent";
 }
 
-<h1>CreateEvent</h1>
+<form class="CreateEventForm" asp-controller="CMS" asp-action="CreateEvent">
+    <div class="form-group">
+        <label asp-for="SiteCode">Site Code</label>
+        <input type="text" asp-for="SiteCode" />
+        <span asp-validation-for="SiteCode" class="error"></span>
+    </div>
 
+    <div class="form-group">
+        <label asp-for="Date">Date</label>
+        <input type="date" asp-for="Date" />
+        <span asp-validation-for="Date" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Spaces">Spaces</label>
+        <input type="number" asp-for="Spaces" />
+        <span asp-validation-for="Spaces" class="error"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Create" class="add" />
+    </div>
+
+</form>
