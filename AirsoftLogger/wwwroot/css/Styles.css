@@ -17,6 +17,7 @@ body {
 .navbar .nav-item .nav-link {
   color: white;
   text-decoration: none;
+  text-align: center;
 }
 .navbar .nav-item .nav-link:hover {
   color: black;
@@ -155,7 +156,40 @@ body {
     opacity: 1;
   }
 }
-.fadeIn {
+.Login {
+  background-color: #5A613F;
+  align-content: center;
+  padding: 1.5rem;
+  color: antiquewhite;
+  border-radius: 10px;
+  width: 60%;
+  margin: auto;
+  overflow-wrap: break-word;
+}
+.Login .LoginRule {
+  border-top: 2px solid antiquewhite;
+  padding: 0.5em;
+}
+.Login .form-group {
+  overflow-wrap: break-word;
+}
+.Login .LoginTitle {
+  text-align: center;
+  font-size: 2rem;
+}
+.Login .username {
+  font-size: 1rem;
+}
+.Login .password {
+  font-size: 1rem;
+}
+.Login .loginButton {
+  background-color: #73655D;
+}
+.Login .loginButton:hover {
+  background-color: #8f847d;
+}
+.Login .fadeIn {
   opacity: 0;
   -webkit-animation: fadeIn ease-in 1;
   -moz-animation: fadeIn ease-in 1;
@@ -167,22 +201,22 @@ body {
   -moz-animation-duration: 1s;
   animation-duration: 1s;
 }
-.fadeIn .first {
+.Login .fadeIn .first {
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
-.fadeIn .second {
+.Login .fadeIn .second {
   -webkit-animation-delay: 0.6s;
   -moz-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-.fadeIn .third {
+.Login .fadeIn .third {
   -webkit-animation-delay: 0.8s;
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
-.fadeIn .fourth {
+.Login .fadeIn .fourth {
   -webkit-animation-delay: 0.9s;
   -moz-animation-delay: 0.9s;
   animation-delay: 0.9s;
@@ -190,4 +224,4 @@ body {
 
 /*# sourceMappingURL=Styles.scss.map */
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=Styles.css.map */

@@ -4,48 +4,53 @@
 }
 <h3>@Html.DisplayFor(a => a.FirstOrDefault().SiteCode) - @Html.DisplayFor(a => a.FirstOrDefault().SiteName)</h3>
 
-
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Spaces)
-            </th>
-            <th> Booking Details </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @item.Date.ToShortDateString()
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Spaces)
-                </td>
-                <td>
-                    @if (item.Spaces > 0)
-                    {
-                        <div class="Book">
-                            <form method="post" asp-controller="Home" asp-action="UpdateEvents">
-                                <input type="hidden" name="EventID" value="@item.EventID" />
-                                <input type="hidden" name="Date" value="@item.Date" />
-                                <input type="hidden" name="SiteCode" value="@item.SiteCode" />
-                                <input type="hidden" name="Spaces" value="@item.Spaces" />
-                                <input type="submit" value="Book" onclick="BookingConfirmed()"/>
-                            </form>
-                        </div>
-                    }
-                    else
-                    {
-                        <p class="Book">Fully Booked</p>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@foreach (var obj in Model)
+{
+    if (!obj.EventID.Equals(0))
+    {
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Spaces)
+                    </th>
+                    <th> Booking Details </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Date.ToShortDateString()
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Spaces)
+                        </td>
+                        <td>
+                            @if (item.Spaces > 0)
+                            {
+                                <div class="Book">
+                                    <form method="post" asp-controller="Home" asp-action="UpdateEvents">
+                                        <input type="hidden" name="EventID" value="@item.EventID" />
+                                        <input type="hidden" name="Date" value="@item.Date" />
+                                        <input type="hidden" name="SiteCode" value="@item.SiteCode" />
+                                        <input type="hidden" name="Spaces" value="@item.Spaces" />
+                                        <input type="submit" value="Book" onclick="BookingConfirmed()" />
+                                    </form>
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="Book">Fully Booked</p>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

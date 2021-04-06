@@ -87,8 +87,36 @@ namespace AirsoftLogger.Controllers
             }
             else
             {
-                List<Site> sites = _Context.Sites.ToList();
-                return View("Sites", sites);
+                List<SiteDetails> siteDetails = new List<SiteDetails>();
+                var sitequery = (from s in _Context.Sites
+                                 join a in _Context.Addresses
+                                 on s.Postcode equals a.Postcode
+                                 where s.SiteCode == id
+                                 select new SiteDetails
+                                 {
+                                     SiteCode = s.SiteCode,
+                                     SiteName = s.SiteName,
+                                     Website = s.Website,
+                                     Tel = s.Tel,
+                                     Street = a.Street,
+                                     City = a.City,
+                                     Postcode = s.Postcode
+
+                                 }).ToList();
+                foreach (var item in sitequery)
+                {
+                    modelList.Add(new SiteDetails()
+                    {
+                        SiteCode = item.SiteCode,
+                        SiteName = item.SiteName,
+                        Website = item.Website,
+                        Tel = item.Tel,
+                        Street = item.Street,
+                        City = item.City,
+                        Postcode = item.Postcode
+                    });
+                }
+                return View(sitequery);
             }
         }
 

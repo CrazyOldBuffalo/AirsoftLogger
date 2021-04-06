@@ -26,7 +26,7 @@ body {
         .nav-link {
             color: white;
             text-decoration: none;
-
+            text-align: center;
             &:hover {
                 color: black;
             }
@@ -202,6 +202,46 @@ body {
 }
 
 .Login {
+    background-color: $HeadColor;
+    align-content: center;
+    padding: 1.5rem;
+    color: antiquewhite;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    overflow-wrap: break-word;
+
+    .LoginRule {
+        border-top: 2px solid antiquewhite;
+        padding: 0.5em;
+    }
+
+    .form-group {
+        overflow-wrap: break-word;
+    }
+
+    .LoginTitle {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .username {
+        font-size: 1rem;
+    }
+
+    .password {
+        font-size: 1rem;
+    }
+
+    .loginButton {
+        $hovercolor: #8f847d;
+        background-color: $FourthColor;
+
+        &:hover {
+            background-color: $hovercolor;
+        }
+    }
+
     .fadeIn {
         opacity: 0;
         -webkit-animation: fadeIn ease-in 1;
