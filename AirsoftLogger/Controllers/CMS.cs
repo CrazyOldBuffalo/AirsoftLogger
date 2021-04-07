@@ -27,9 +27,25 @@ namespace AirsoftLogger.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditSite(string SiteCode)
+        public IActionResult EditSite(string id)
         {
-            return View();
+            var editsite = (
+                from s in _Context.Sites
+                join a in _Context.Addresses
+                on s.Postcode equals a.Postcode
+                where s.SiteCode == id
+                select new SiteForm
+                {
+                    SiteCode = s.SiteCode,
+                    SiteName = s.SiteName,
+                    Postcode = s.Postcode,
+                    Tel = s.Tel,
+                    Website = s.Website,
+                    Street = a.Street,
+                    City = a.City,
+
+                });
+            return View(editsite);
         }
 
         [HttpGet]
@@ -67,6 +83,33 @@ namespace AirsoftLogger.Controllers
                 _Context.Events.Add(newEvent);
                 _Context.SaveChanges();
                 return RedirectToAction("Events", "Home");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateSite(SiteForm site)
+        {
+            if (ModelState.IsValid)
+            {
+                Site editsite = new Site
+                {
+                    SiteCode = site.SiteCode,
+                    SiteName = site.SiteName,
+                    Tel = site.Tel,
+                    Website = site.Website,
+                    Postcode = site.Postcode,
+                };
+                Address editaddress = new Address
+                {
+                    Postcode = site.Postcode,
+                    Street = site.Street,
+                    City = site.City,
+                };
+                _Context.Sites.Update(editsite);
+                _Context.Addresses.Update(editaddress);
+                _Context.SaveChanges();
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }

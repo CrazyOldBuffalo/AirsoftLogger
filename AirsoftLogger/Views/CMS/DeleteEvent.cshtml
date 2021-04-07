@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "Delete Event";
 }
+<div class="eventdeleteHeading text-center">
+    <h1>Event Deletion</h1>
+    <h2>Use this page to Delete the selected Event from the database, WARNING THIS IS PERMENANT</h2>
+    <hr />
+</div>
 <form class="DeleteEventForm" method="post">
     <input type="hidden" name="EventId" value="@Model.EventID" />
     <input type="hidden" name="SiteCode" value="@Model.SiteCode" />
