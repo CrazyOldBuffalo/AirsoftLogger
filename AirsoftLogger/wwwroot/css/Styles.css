@@ -37,7 +37,7 @@ body {
 }
 .header .text-center .display-3 {
   padding: 1rem;
-  font-size: 3em;
+  font-size: 2em;
 }
 .header .text-center .display-4 {
   padding: 0.5rem;
@@ -46,13 +46,29 @@ body {
 
 .logincontainer .btn {
   cursor: pointer;
-  background: #73655D;
-  border-color: #73655D;
+  background: #81746d;
+  border-color: #81746d;
 }
+.footer {
+  padding: 0.5em;
+  background-color: #5A613F;
+}
+.footer .container {
+  align-content: center;
+  font-size: 12px;
+  color: white;
+}
+.footer .container .lightmode {
+  padding: 5px;
+}
+.footer .container .darkmode {
+  padding: 5px;
+}
+
 .slideshow-container {
   z-index: 1;
   padding: 4em;
-  max-width: 50vw;
+  max-width: 75vw;
   margin: auto;
 }
 @media only screen and (max-width: 300px) {
@@ -190,7 +206,7 @@ body {
   font-size: 1rem;
 }
 .Login .loginButton {
-  background-color: #73655D;
+  background-color: #81746d;
 }
 .Login .loginButton:hover {
   background-color: #8f847d;

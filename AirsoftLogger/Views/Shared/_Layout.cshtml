@@ -61,26 +61,28 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer border-top text-muted">
         <div class="container">
             &copy; 2021 - AirsoftLogger - Tomasz Boberek
+
+            @if (Context.Request.Cookies.ContainsKey("DarkMode"))
+            {
+                <div class="lightmode">
+                    <form class="lightmodeform" asp-action="LightMode" asp-controller="home" method="post">
+                        <button class="btn btn-light" type="submit">LightMode <i class="fas fa-sun"></i></button>
+                    </form>
+                </div>
+            }
+            @if (!Context.Request.Cookies.ContainsKey("DarkMode"))
+            {
+                <div class="darkmode">
+                    <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
+                        <button class="btn btn-dark" type="submit">DarkMode <i class="fas fa-moon"></i></button>
+                    </form>
+                </div>
+            }
         </div>
-        @if (Context.Request.Cookies.ContainsKey("DarkMode"))
-        {
-            <div class="lightmode">
-                <form class="lightmodeform" asp-action="LightMode" asp-controller="home" method="post">
-                    <button class="btn btn-dark" type="submit">LightMode</button>
-                </form>
-            </div>
-        }
-        @if (!Context.Request.Cookies.ContainsKey("DarkMode"))
-        {
-            <div class="darkmode">
-                <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
-                    <button class="btn btn-dark" type="submit">DarkMode</button>
-                </form>
-            </div>
-        }
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
