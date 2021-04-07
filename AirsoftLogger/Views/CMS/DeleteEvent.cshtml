@@ -1,6 +1,7 @@
 ﻿@model AirsoftLogger.Models.Events;
 @{
     ViewData["Title"] = "Delete Event";
+    Layout = "CMS";
 }
 <div class="eventdeleteHeading text-center">
     <h1>Event Deletion</h1>
@@ -15,8 +16,6 @@
 
     <p class="text-warning">Delete Event @Model.SiteCode &#64 @Model.Date.ToShortDateString()  </p>
 
-    <p><input type="submit" value="Delete" class="delete" /></p>
-
-    <p><a asp-controller="Home" asp-action="Index" class="add">Keep</a><br></p>
+    <input class="Delete" type="submit" value="Delete" onclick="return confirmation()"/>
 
 </form>
