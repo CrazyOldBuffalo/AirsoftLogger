@@ -11,23 +11,29 @@
 </div>
 
 <div class="searchSite text-md-center">
+    <h2> Search </h2>
+    <form class="form-inline justify-content-center" asp-action="SearchSite" method="get">
 
-    <form asp-action="SearchSite" method="get">
-        <h2> Search </h2>
-        <label for="SearchString">Search For Site: </label> <input type="text" name="SearchString" id="SearchString" />
-        <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()" />
+        <div class="form-group">
+            <label class="searchlabel" for="SearchString">Search For A Site: </label> <input type="text" name="SearchString" id="SearchString" class="form-control" />
+            <div class="searchbuttoncontainer">
+                <input type="submit" runat="server" value="Filter" class="searchbutton btn btn-primary" onclick="return searchcheck()" />
+            </div>
+        </div>
     </form>
 </div>
 
+<div class="SiteTableTop text-center">
+    <h2>Below is the list of all available sites </h2>
+</div>
+
+
 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
 {
-    <div class="adminSiteadd">
+    <div class="adminSiteadd text-center">
         <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateSite"> Add New <i class="fas fa-plus"></i></a>
     </div>
 }
-
-<h2>Below is the list of all available sites </h2>
-
 
 <table class="SiteTable table table-striped table-responsive">
     <thead class="thead-dark">
@@ -41,7 +47,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Tel)
             </th>
-            <th> Options</th>
+            <th> Options </th>
         </tr>
     </thead>
     <tbody>
@@ -64,10 +70,10 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
                         <div class="SiteUpdateContainer">
-                            <a class="btn btn-primary" asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update <i class="fas fa-pencil-alt"></i> </a>
+                            <a class="SiteUpdate btn btn-primary" asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update <i class="fas fa-pencil-alt"></i></a>
                         </div>
                         <div class="SiteDeleteContainer">
-                            <a class="btn btn-primary" asp-controller="CMS" asp-action="DeleteSite" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                            <a class="SiteDelete btn btn-danger" asp-controller="CMS" asp-action="DeleteSite" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
                         </div>
                     }
                 </td>

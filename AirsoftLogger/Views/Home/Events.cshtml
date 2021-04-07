@@ -15,7 +15,9 @@
     <form asp-action="searchEvent" method="get">
         <h2> Search </h2>
         <label for="SearchString">Search For Event By SiteCode: </label> <input type="text" name="SearchString" id="SearchString" />
-        <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()" />
+        <div class="searchbuttoncontainer">
+            <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()" />
+        </div>
     </form>
 </div>
 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
@@ -54,12 +56,12 @@
                 </td>
                 <td>
                     <div class="EventDetailsContainer">
-                        <a  class="btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                        <a  class="EventDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
                     </div>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
                         <div class="EventDeleteContainer">
-                            <a class="btn btn-primary" asp-controller="CMS" asp-action="DeleteEvent" asp-route-id="@item.EventID"> Delete <i class="fas fa-trash"></i></a>
+                            <a class="EventDelete btn btn-danger" asp-controller="CMS" asp-action="DeleteEvent" asp-route-id="@item.EventID"> Delete <i class="fas fa-trash"></i></a>
                         </div>
                     }
                 </td>
