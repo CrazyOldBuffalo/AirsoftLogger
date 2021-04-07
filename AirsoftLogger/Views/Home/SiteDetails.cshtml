@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<AirsoftLogger.Models.SiteDetails>
 @{
     ViewData["Title"] = "SiteDetails";
+    Layout = "_Layout";
 }
 
 <div class="sitedetailsHeading text-center">
@@ -8,9 +9,7 @@
     <h2>On this page you'll find all the information on each Site (address, code, etc) and can also view each event this site is running below</h2>
     <hr />
 </div>
-
 <h3>@Html.DisplayFor(a => a.FirstOrDefault().SiteCode) - @Html.DisplayFor(a => a.FirstOrDefault().SiteName)</h3>
-
 @foreach (var obj in Model)
 {
 
