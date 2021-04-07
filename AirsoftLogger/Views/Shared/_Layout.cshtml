@@ -3,13 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Airsoft, UK, Airsoft Sites, UK Airsoft, Airsoft Guns, Airsoft Events"/>
-    <meta name="author" content="Tom Boberek"/>
-    <meta name="description" content="Welcome to Airsoft Logger, The only tool that stores all registered UK Airsoft Sites and their upcoming events."/>
+    <meta name="keywords" content="Airsoft, UK, Airsoft Sites, UK Airsoft, Airsoft Guns, Airsoft Events" />
+    <meta name="author" content="Tom Boberek" />
+    <meta name="description" content="Welcome to Airsoft Logger, The only tool that stores all registered UK Airsoft Sites and their upcoming events." />
     <title>@ViewData["Title"] - AirsoftLogger</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/Styles.css" />
-    <script src="~/js/JavaScript.js"></script>
+    @if (Context.Request.Cookies["DarkMode"] == "True")
+    {
+        <link rel="stylesheet" href="~/css/DarkMode.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/Styles.css" />
+    }
     <script src="https://kit.fontawesome.com/917cececc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -40,11 +46,11 @@
                 }
                 else
                 {
-                <div class="logoutcontainer">
-                    <form asp-controller="Security" asp-action="Logout" method="post">
-                        <button class="btn btn-primary" type="submit">Logout <i class="fas fa-sign-out-alt"></i></button>
-                    </form>
-                </div>
+                    <div class="logoutcontainer">
+                        <form asp-controller="Security" asp-action="Logout" method="post">
+                            <button class="btn btn-primary" type="submit">Logout <i class="fas fa-sign-out-alt"></i></button>
+                        </form>
+                    </div>
                 }
             </div>
         </nav>
@@ -59,13 +65,27 @@
         <div class="container">
             &copy; 2021 - AirsoftLogger - Tomasz Boberek
         </div>
-        <div class="darkmode">
-            <form class="darkmodeform" asp-action="darkmode" asp-controller="home" method="post"></form>
-            <button class="btn btn-dark" type="submit">DarkMode</button>
-        </div>
+        @if (Context.Request.Cookies.ContainsKey("DarkMode"))
+        {
+            <div class="lightmode">
+                <form class="lightmodeform" asp-action="LightMode" asp-controller="home" method="post">
+                    <button class="btn btn-dark" type="submit">LightMode</button>
+                </form>
+            </div>
+        }
+        @if (!Context.Request.Cookies.ContainsKey("DarkMode"))
+        {
+            <div class="darkmode">
+                <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
+                    <button class="btn btn-dark" type="submit">DarkMode</button>
+                </form>
+            </div>
+        }
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+    <script src="~/js/Slideshow.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
