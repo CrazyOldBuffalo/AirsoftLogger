@@ -114,7 +114,7 @@ namespace AirsoftLogger.Controllers
             return View();
         }
 
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public IActionResult DeleteSite(string id)
         {
             List<SiteDetails> modelList = new List<SiteDetails>();
@@ -153,9 +153,9 @@ namespace AirsoftLogger.Controllers
                     Spaces = item.Spaces
                 });
             }
-            if (query.Count != 0)
+            if (modelList.Count != 0)
             {
-                return View(query);
+                return View(modelList);
             }
             else
             {

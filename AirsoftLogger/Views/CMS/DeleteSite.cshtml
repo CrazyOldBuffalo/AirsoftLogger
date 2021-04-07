@@ -19,7 +19,7 @@
 
     <p class="text-warning">Delete Site @Model.FirstOrDefault().SiteName?</p>
 
-    <p><input type="submit" value="Delete" class="delete" /></p>
+    <input class="Delete" type="submit" value="Delete" onclick="return confirmation()"/>
 
     <p><a asp-controller="Home" asp-action="Index" class="add">Keep</a><br></p>
 
