@@ -1,5 +1,14 @@
 ﻿@{
     ViewData["Title"] = "AirsoftLogger";
+
+    if(User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+    {
+        Layout = "LoggedIn";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/Slideshow.js"></script>
