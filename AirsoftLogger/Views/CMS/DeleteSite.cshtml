@@ -16,11 +16,13 @@
     <input type="hidden" name="SiteName" value="@Model.FirstOrDefault().SiteName" />
     <input type="hidden" name="Website" value="@Model.FirstOrDefault().Website" />
     <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
+    @foreach (var item in Model)
+    {
+        <input type="hidden" value="@item.EventID" />
+    }
 
     <p class="text-warning">Delete Site @Model.FirstOrDefault().SiteName?</p>
 
-    <input class="Delete" type="submit" value="Delete" onclick="return confirmation()"/>
-
-    <p><a asp-controller="Home" asp-action="Index" class="add">Keep</a><br></p>
+    <input class="Delete" type="submit" value="Delete" onclick="return confirmation()" />
 
 </form>

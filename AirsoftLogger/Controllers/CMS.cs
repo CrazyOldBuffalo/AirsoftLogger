@@ -188,7 +188,7 @@ namespace AirsoftLogger.Controllers
                         Postcode = item.Postcode
                     });
                 }
-                return View(sitequery);
+                return View(modelList);
             }
         }
         
