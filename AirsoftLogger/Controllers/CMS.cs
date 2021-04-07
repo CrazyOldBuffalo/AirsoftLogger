@@ -26,19 +26,30 @@ namespace AirsoftLogger.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult EditSite(string SiteCode)
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult CreateSite()
         {
             return View();
         }
         
+        [HttpGet]
         public IActionResult CreateEvent()
         {
             return View();
+        }
+
+
+        [HttpGet]  
+        public IActionResult DeleteEvent(int id)
+        {
+            Events deleteEvent = _Context.Events.Find(id);
+            return View(deleteEvent);
         }
 
         [HttpPost]
@@ -138,6 +149,15 @@ namespace AirsoftLogger.Controllers
             }
         }
         
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteEvent(Events Event)
+        {
+            _Context.Events.Remove(Event);
+            _Context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteSite(SiteDetails siteDetails)

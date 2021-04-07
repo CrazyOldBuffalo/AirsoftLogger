@@ -59,7 +59,7 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
                         <div class="EventDeleteContainer">
-                            <a class="btn btn-primary" asp-controller="CMS" asp-action="SiteDelete" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                            <a class="btn btn-primary" asp-controller="CMS" asp-action="DeleteEvent" asp-route-id="@item.EventID"> Delete <i class="fas fa-trash"></i></a>
                         </div>
                     }
                 </td>

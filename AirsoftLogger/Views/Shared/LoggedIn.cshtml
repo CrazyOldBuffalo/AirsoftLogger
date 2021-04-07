@@ -32,7 +32,7 @@
                 </div>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                 {
-                    <h3 class="IdentityName">Welcome  - @User.Identity.Name</h3>
+                    <h3 class="IdentityName text-center">Welcome  - @User.Identity.Name</h3>
                 }
                 @if (!User.Identity.IsAuthenticated && !User.IsInRole("Manager"))
                 {
