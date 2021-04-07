@@ -1,14 +1,27 @@
 ﻿@model IEnumerable<AirsoftLogger.Models.Events>;
-@{ ViewData["Title"] = "Events";
+@{ 
+    ViewData["Title"] = "Events";
+    Layout = "ListLayout";
 }
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/js/Scroll.js"></script>
-<script src="~/js/Search.js"></script>
 
+<div class="siteHeading text-center">
+    <h1>Events</h1>
+    <h2>On this page you'll find all the available Events Currently Available, To find more information click on an events details. From there you can find the site &amp; information or Book onto an event.</h2>
+    <hr />
+</div>
+
+<div class="searchEvent text-md-center">
+
+    <form asp-action="searchEvent" method="get">
+        <h2> Search </h2>
+        <label for="SearchString">Search For Event By SiteCode: </label> <input type="text" name="SearchString" id="SearchString" />
+        <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()" />
+    </form>
+</div>
 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
 {
     <div class="adminEventAdd">
-        <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateEvent"> Add New Event <i fas fa-plus></i></a>
+        <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateEvent"> Add New Event <i class="fas fa-plus"></i></a>
     </div>
 }
 <table class="EventTable table table-striped table-responsive">
@@ -40,10 +53,14 @@
                     @Html.DisplayFor(modelItem => item.Spaces)
                 </td>
                 <td>
-                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                    <div class="EventDetailsContainer">
+                        <a  class="btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                    </div>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
-                        <a asp-controller="CMS" asp-action="SiteDelete" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                        <div class="EventDeleteContainer">
+                            <a class="btn btn-primary" asp-controller="CMS" asp-action="SiteDelete" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                        </div>
                     }
                 </td>
             </tr>

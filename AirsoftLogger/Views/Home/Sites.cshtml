@@ -2,19 +2,17 @@
 
 @{
     ViewData["Title"] = "Sites";
+    Layout = "ListLayout";
 }
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/js/Search.js"></script>
-<script src="~/js/Scroll.js"></script>
 <div class="siteHeading text-center">
     <h1>Sites</h1>
     <h2>On this page you'll find all the available sites stored within this website.</h2>
     <hr />
 </div>
 
-<div class="search text-md-center">
+<div class="searchSite text-md-center">
 
-    <form asp-action="search" method="get">
+    <form asp-action="SearchSite" method="get">
         <h2> Search </h2>
         <label for="SearchString">Search For Site: </label> <input type="text" name="SearchString" id="SearchString" />
         <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()" />
@@ -24,7 +22,7 @@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
 {
     <div class="adminSiteadd">
-        <a asp-controller="CMS" asp-action="CreateSite"> Add New <i fas fa-plus></i></a>
+        <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateSite"> Add New <i class="fas fa-plus"></i></a>
     </div>
 }
 
@@ -60,11 +58,17 @@
                     @Html.DisplayFor(modelItem => item.Tel)
                 </td>
                 <td>
-                    <a asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                    <div class="SiteDetailsContainer">
+                        <a class="SiteDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                    </div>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
-                        <a asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update <i class="fas fa-pencil-alt"></i> </a>
-                        <a asp-controller="CMS" asp-action="DeleteSite" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                        <div class="SiteUpdateContainer">
+                            <a class="btn btn-primary" asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update <i class="fas fa-pencil-alt"></i> </a>
+                        </div>
+                        <div class="SiteDeleteContainer">
+                            <a class="btn btn-primary" asp-controller="CMS" asp-action="DeleteSite" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                        </div>
                     }
                 </td>
             </tr>

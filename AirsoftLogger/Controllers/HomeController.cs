@@ -120,7 +120,7 @@ namespace AirsoftLogger.Controllers
             }
         }
 
-        public IActionResult Search(String SearchString)
+        public IActionResult SearchSite(String SearchString)
         {
             var sites = from s in _Context.Sites
                         select s;
@@ -135,6 +135,24 @@ namespace AirsoftLogger.Controllers
                 List<Site> sitemodel = _Context.Sites.ToList();
                 return View("Sites", sitemodel);
             }
+        }
+
+        public IActionResult SearchEvent(String SearchString)
+        {
+            var events = from e in _Context.Events
+                         select e;
+            if(!String.IsNullOrEmpty(SearchString))
+            {
+                events = events.Where(e => e.SiteCode.Contains(SearchString));
+                List<Events> searchEvents = events.ToList();
+                return View("Events", searchEvents);
+            }
+            else
+            {
+                List<Events> EventModel = _Context.Events.ToList();
+                return View("Events", EventModel);
+            }
+                         
         }
 
         public IActionResult Events(int? page)
