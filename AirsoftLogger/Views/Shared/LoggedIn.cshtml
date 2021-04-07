@@ -16,8 +16,7 @@
     {
         <link rel="stylesheet" href="~/css/Styles.css" />
     }
-    <script src="~/js/Scroll.js"></script>
-    <script src="~/js/Search.js"></script>
+
     <script src="https://kit.fontawesome.com/917cececc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -69,15 +68,27 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - AirsoftLogger - Tomasz Boberek
-        </div>
-        <div class="darkmode">
-            <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
-                <button class="btn btn-dark" type="submit">DarkMode</button>
-            </form>
+            @if (Context.Request.Cookies.ContainsKey("DarkMode"))
+            {
+                <div class="lightmode">
+                    <form class="lightmodeform" asp-action="LightMode" asp-controller="home" method="post">
+                        <button class="btn btn-light" type="submit">LightMode <i class="fas fa-sun"></i></button>
+                    </form>
+                </div>
+            }
+            @if (!Context.Request.Cookies.ContainsKey("DarkMode"))
+            {
+                <div class="darkmode">
+                    <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
+                        <button class="btn btn-dark" type="submit">DarkMode <i class="fas fa-moon"></i></button>
+                    </form>
+                </div>
+            }
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/Slideshow.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

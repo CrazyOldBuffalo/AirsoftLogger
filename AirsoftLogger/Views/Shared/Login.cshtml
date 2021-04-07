@@ -61,18 +61,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - AirsoftLogger - Tomasz Boberek
-        </div>
-        <div class="darkmode">
-            <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
-                <button class="btn btn-dark" type="submit">DarkMode</button>
-            </form>
-        </div>
-    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/LoginCheck.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

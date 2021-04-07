@@ -109,13 +109,12 @@ namespace AirsoftLogger.Controllers
                 });
 
             }
-            if (query.Count() != 0)
+            if (modelList.Count() != 0)
             {
-                return View(query);
+                return View(modelList);
             }
             else
             {
-                List<SiteDetails> siteDetails = new List<SiteDetails>();
                 var sitequery = (from s in _Context.Sites
                                  join a in _Context.Addresses
                                  on s.Postcode equals a.Postcode
@@ -144,7 +143,7 @@ namespace AirsoftLogger.Controllers
                         Postcode = item.Postcode
                     });
                 }
-                return View(sitequery);
+                return View(modelList);
             }
         }
 
@@ -159,9 +158,17 @@ namespace AirsoftLogger.Controllers
                         select s;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                sites = sites.Where(s => s.SiteName.Contains(SearchString) || s.Postcode.Contains(SearchString));
+                sites = sites.Where(s => s.SiteName.Contains(SearchString) || s.Postcode.Contains(SearchString) || s.SiteCode.Contains(SearchString));
                 List<Site> searchSites = sites.ToList();
-                return View("Sites", searchSites);
+                if (searchSites.Count == 0)
+                {
+                    List<Site> sitemodel = _Context.Sites.ToList();
+                    return View("Sites", sitemodel);
+                }
+                else { 
+                    return View("Sites", searchSites); 
+                }
+                
             }
             else
             {
@@ -183,6 +190,12 @@ namespace AirsoftLogger.Controllers
             {
                 events = events.Where(e => e.SiteCode.Contains(SearchString));
                 List<Events> searchEvents = events.ToList();
+                if (searchEvents.Count == 0)
+                {
+                    List<Events> EventModel = events.ToList();
+                    return View("Events", EventModel);
+
+                }
                 return View("Events", searchEvents);
             }
             else
@@ -204,14 +217,10 @@ namespace AirsoftLogger.Controllers
             return View(eventlist);
         }
 
-        [HttpGet]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateEvents(SiteDetails siteDetails)
         {
-            if (Request.Cookies["DarkMode"] == "True")
-            {
-                ViewData["Mode"] = Request.Cookies["DarkMode"];
-            }
             Events eventUpdate = new Events
             {
                 EventID = siteDetails.EventID,
@@ -221,7 +230,7 @@ namespace AirsoftLogger.Controllers
             };
             _Context.Events.Update(eventUpdate);
             _Context.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index","Home");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

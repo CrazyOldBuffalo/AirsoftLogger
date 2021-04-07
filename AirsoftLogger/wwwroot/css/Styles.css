@@ -37,7 +37,7 @@ body {
 }
 .header .text-center .display-3 {
   padding: 1rem;
-  font-size: 3em;
+  font-size: 2em;
 }
 .header .text-center .display-4 {
   padding: 0.5rem;
@@ -46,13 +46,44 @@ body {
 
 .logincontainer .btn {
   cursor: pointer;
-  background: #73655D;
-  border-color: #73655D;
+  background: #81746d;
+  border-color: #81746d;
 }
+.logincontainer .btn:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+
+.logoutcontainer .btn {
+  cursor: pointer;
+  background: #81746d;
+  border-color: #81746d;
+}
+.logoutcontainer .btn:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+
+.footer {
+  padding: 0.5rem;
+  background-color: #5A613F;
+}
+.footer .container {
+  align-content: center;
+  font-size: 12px;
+  color: white;
+}
+.footer .container .lightmode {
+  padding: 5px;
+}
+.footer .container .darkmode {
+  padding: 5px;
+}
+
 .slideshow-container {
   z-index: 1;
   padding: 4em;
-  max-width: 50vw;
+  max-width: 75vw;
   margin: auto;
 }
 @media only screen and (max-width: 300px) {
@@ -86,15 +117,201 @@ body {
   animation-duration: 4.5s;
 }
 
+.adminSiteadd {
+  padding: 1rem;
+  align-content: center;
+}
+
+.SiteInfoContainer {
+  background-color: #5A613F;
+  border-radius: 10px;
+  padding: 1rem;
+  color: white;
+}
+.SiteInfoContainer .ImportantSiteInfo {
+  padding: 0.2rem;
+  font-size: 2em;
+}
+.SiteInfoContainer .SiteAddress {
+  padding: 1rem;
+}
+.SiteInfoContainer .SiteAddress .AddressTitle {
+  font-size: 2em;
+}
+.SiteInfoContainer .SiteAddress .AddressItem {
+  font-size: 1.5em;
+  padding-left: 1rem;
+}
+.SiteInfoContainer .SiteContact {
+  padding: 1rem;
+}
+.SiteInfoContainer .SiteContact .ContactTitle {
+  font-size: 2em;
+}
+.SiteInfoContainer .SiteContact .ContactItem {
+  font-size: 1.5em;
+  padding-left: 1rem;
+}
+.SiteInfoContainer .SiteContact .ContactWebsite {
+  text-decoration: none;
+  cursor: pointer;
+  color: antiquewhite;
+  text-align: center;
+}
+
+.DetailTable {
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.loginobject {
+  margin: 3rem, 0, 3rem, 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .map {
+    display: block;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 699px) {
+  .map {
+    display: none;
+  }
+}
+.siteHeading .text-center {
+  padding: 2rem;
+}
+.siteHeading h1 {
+  font-size: 4em;
+}
+.siteHeading h2 {
+  font-size: 2em;
+}
+.siteHeading hr {
+  border-bottom: solid 2px antiquewhite;
+}
+
+.searchSite {
+  width: fit-content();
+  border: solid 1px antiquewhite;
+  margin: auto;
+  padding: 1rem;
+}
+.searchSite .searchlabel {
+  padding: 0.7rem;
+}
+.searchSite .form-group {
+  padding: 0.5rem;
+}
+.searchSite .searchbuttoncontainer {
+  padding-left: 1rem;
+}
+.searchSite .searchbuttoncontainer .searchbutton {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.searchSite .searchbuttoncontainer .searchbutton:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+
+.SiteTableTop {
+  padding: 1.5rem;
+}
+.SiteTableTop h2 {
+  font-size: 2em;
+}
+
+.EventTable {
+  align-content: center;
+  margin: auto;
+  padding: 0.5rem;
+}
+.EventTable td .websitelink {
+  text-decoration: none;
+  cursor: pointer;
+  color: #58504c;
+  text-align: center;
+}
+.EventTable .thead-dark {
+  background-color: #5A613F;
+  color: antiquewhite;
+}
+.EventTable .SiteDetailsContainer {
+  padding: 0.5rem 0 0 0;
+}
+.EventTable .SiteDetailsContainer .SiteDetails {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.EventTable .SiteDetailsContainer .SiteDetails:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+.EventTable .SiteUpdateContainer {
+  padding: 0.5rem 0 0 0;
+}
+.EventTable .SiteUpdateContainer .SiteUpdate {
+  background-color: #5A613F;
+  border-color: #5A613F;
+}
+.EventTable .SiteUpdateContainer .SiteUpdate:hover {
+  background-color: #6b7152;
+  color: black;
+}
+.EventTable .SiteDeleteContainer {
+  padding: 0.5rem 0 0 0;
+}
+
+.SiteTable {
+  align-content: center;
+}
+.SiteTable td .websitelink {
+  text-decoration: none;
+  cursor: pointer;
+  color: #58504c;
+  text-align: center;
+}
+.SiteTable .thead-dark {
+  background-color: #5A613F;
+  color: antiquewhite;
+}
+.SiteTable .SiteDetailsContainer {
+  padding: 0.5rem 0 0 0;
+}
+.SiteTable .SiteDetailsContainer .SiteDetails {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.SiteTable .SiteDetailsContainer .SiteDetails:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+.SiteTable .SiteUpdateContainer {
+  padding: 0.5rem 0 0 0;
+}
+.SiteTable .SiteUpdateContainer .SiteUpdate {
+  background-color: #5A613F;
+  border-color: #5A613F;
+}
+.SiteTable .SiteUpdateContainer .SiteUpdate:hover {
+  background-color: #6b7152;
+  color: black;
+}
+.SiteTable .SiteDeleteContainer {
+  padding: 0.5rem 0 0 0;
+}
+
 #Top {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 85px;
+  right: 40px;
   z-index: 99;
   border: none;
   outline: none;
-  background-color: red;
+  background-color: #81746d;
   color: white;
   cursor: pointer;
   padding: 15px;
@@ -102,7 +319,44 @@ body {
   font-size: 18px;
 }
 #Top:hover {
-  background-color: #555;
+  background-color: #5c514a;
+}
+
+.eventHeading .text-center {
+  padding: 2rem;
+}
+.eventHeading h1 {
+  font-size: 4em;
+}
+.eventHeading h2 {
+  font-size: 2em;
+}
+.eventHeading hr {
+  border-bottom: solid 2px antiquewhite;
+}
+
+.searchEvent {
+  width: fit-content();
+  border: solid 1px antiquewhite;
+  margin: auto;
+  padding: 1rem;
+}
+.searchEvent .searchlabel {
+  padding: 0.7rem;
+}
+.searchEvent .form-group {
+  padding: 0.5rem;
+}
+.searchEvent .searchbuttoncontainer {
+  padding-left: 1rem;
+}
+.searchEvent .searchbuttoncontainer .searchbutton {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.searchEvent .searchbuttoncontainer .searchbutton:hover {
+  background-color: #ebe1d1;
+  color: black;
 }
 
 .fadeInDown {
@@ -166,6 +420,7 @@ body {
   background-color: #5A613F;
   align-content: center;
   padding: 1.5rem;
+  margin: 4rem 0 4rem 0;
   color: antiquewhite;
   border-radius: 10px;
   width: 60%;
@@ -190,7 +445,7 @@ body {
   font-size: 1rem;
 }
 .Login .loginButton {
-  background-color: #73655D;
+  background-color: #81746d;
 }
 .Login .loginButton:hover {
   background-color: #8f847d;
