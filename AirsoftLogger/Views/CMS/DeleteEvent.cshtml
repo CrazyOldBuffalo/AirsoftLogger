@@ -1,0 +1,22 @@
+﻿@model AirsoftLogger.Models.Events;
+@{
+    ViewData["Title"] = "Delete Event";
+}
+<div class="eventdeleteHeading text-center">
+    <h1>Event Deletion</h1>
+    <h2>Use this page to Delete the selected Event from the database, WARNING THIS IS PERMENANT</h2>
+    <hr />
+</div>
+<form class="DeleteEventForm" method="post">
+    <input type="hidden" name="EventId" value="@Model.EventID" />
+    <input type="hidden" name="SiteCode" value="@Model.SiteCode" />
+    <input type="hidden" name="Date" value="@Model.Date" />
+    <input type="hidden" name="Spaces" value="@Model.Spaces" />
+
+    <p class="text-warning">Delete Event @Model.SiteCode &#64 @Model.Date.ToShortDateString()  </p>
+
+    <p><input type="submit" value="Delete" class="delete" /></p>
+
+    <p><a asp-controller="Home" asp-action="Index" class="add">Keep</a><br></p>
+
+</form>

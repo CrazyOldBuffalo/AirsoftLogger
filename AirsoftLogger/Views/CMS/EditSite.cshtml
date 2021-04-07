@@ -1,7 +1,50 @@
-﻿
+﻿@model IQueryable<AirsoftLogger.Models.SiteForm>
 @{
     ViewData["Title"] = "EditSite";
 }
 
-<h1>EditSite</h1>
+<div class="editsiteHeading text-center">
+    <h1>Site Editing</h1>
+    <h2>Use This page to Edit the Selected Site</h2>
+    <hr />
+</div>
+
+<form asp-controller="CMS" asp-action="UpdateSite">
+    <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
+    <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
+    <div>
+        <label>Site Name</label>
+        <input asp-for="FirstOrDefault().SiteName" />
+        <span asp-validation-for="FirstOrDefault().SiteName" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="FirstOrDefault().Website">Website</label>
+        <input type="url" asp-for="FirstOrDefault().Website" />
+        <span asp-validation-for="FirstOrDefault().Website" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="FirstOrDefault().Tel">Phone Number</label>
+        <input type="tel" asp-for="FirstOrDefault().Tel"/>
+        <span asp-validation-for="FirstOrDefault().Tel" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="FirstOrDefault().Street">Street</label>
+        <input type="text" asp-for="FirstOrDefault().Street" />
+        <span asp-validation-for="FirstOrDefault().Street" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="FirstOrDefault().City">City</label>
+        <input type="text" asp-for="FirstOrDefault().City" />
+        <span asp-validation-for="FirstOrDefault().City" class="error"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+
+</form>
 

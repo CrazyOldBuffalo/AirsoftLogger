@@ -4,7 +4,7 @@
     Layout = "ListLayout";
 }
 
-<div class="siteHeading text-center">
+<div class="eventHeading text-center">
     <h1>Events</h1>
     <h2>On this page you'll find all the available Events Currently Available, To find more information click on an events details. From there you can find the site &amp; information or Book onto an event.</h2>
     <hr />
@@ -59,7 +59,7 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
                         <div class="EventDeleteContainer">
-                            <a class="btn btn-primary" asp-controller="CMS" asp-action="SiteDelete" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
+                            <a class="btn btn-primary" asp-controller="CMS" asp-action="DeleteEvent" asp-route-id="@item.EventID"> Delete <i class="fas fa-trash"></i></a>
                         </div>
                     }
                 </td>
