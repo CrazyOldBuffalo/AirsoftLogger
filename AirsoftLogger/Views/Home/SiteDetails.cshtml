@@ -6,6 +6,7 @@
 
 @foreach (var obj in Model)
 {
+
     if (!obj.EventID.Equals(0))
     {
         <table class="table">
@@ -21,35 +22,32 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @item.Date.ToShortDateString()
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Spaces)
-                        </td>
-                        <td>
-                            @if (item.Spaces > 0)
-                            {
-                                <div class="Book">
-                                    <form method="post" asp-controller="Home" asp-action="UpdateEvents">
-                                        <input type="hidden" name="EventID" value="@item.EventID" />
-                                        <input type="hidden" name="Date" value="@item.Date" />
-                                        <input type="hidden" name="SiteCode" value="@item.SiteCode" />
-                                        <input type="hidden" name="Spaces" value="@item.Spaces" />
-                                        <input type="submit" value="Book" onclick="BookingConfirmed()" />
-                                    </form>
-                                </div>
-                            }
-                            else
-                            {
-                                <p class="Book">Fully Booked</p>
-                            }
-                        </td>
-                    </tr>
-                }
+                <tr>
+                    <td>
+                        @obj.Date.ToShortDateString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => obj.Spaces)
+                    </td>
+                    <td>
+                        @if (obj.Spaces > 0)
+                        {
+                            <div class="Book">
+                                <form method="post" asp-controller="Home" asp-action="UpdateEvents">
+                                    <input type="hidden" name="EventID" value="@obj.EventID" />
+                                    <input type="hidden" name="Date" value="@obj.Date" />
+                                    <input type="hidden" name="SiteCode" value="@obj.SiteCode" />
+                                    <input type="hidden" name="Spaces" value="@obj.Spaces" />
+                                    <input type="submit" value="Book" onclick="BookingConfirmed()" />
+                                </form>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="Book">Fully Booked</p>
+                        }
+                    </td>
+                </tr>
             </tbody>
         </table>
     }

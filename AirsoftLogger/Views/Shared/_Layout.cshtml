@@ -9,6 +9,7 @@
     <title>@ViewData["Title"] - AirsoftLogger</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/Styles.css" />
+    <script src="~/js/JavaScript.js"></script>
     <script src="https://kit.fontawesome.com/917cececc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -57,6 +58,10 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - AirsoftLogger - Tomasz Boberek
+        </div>
+        <div class="darkmode">
+            <form class="darkmodeform" asp-action="darkmode" asp-controller="home" method="post"></form>
+            <button class="btn btn-dark" type="submit">DarkMode</button>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
