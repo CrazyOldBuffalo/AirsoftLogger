@@ -6,27 +6,29 @@
 
 <div class="eventHeading text-center">
     <h1>Events</h1>
-    <h2>On this page you'll find all the available Events Currently Available, To find more information click on an events details. From there you can find the site &amp; information or Book onto an event.</h2>
+    <h2>On this page you'll find all the Currently Available Events, To find more information click on an events details. From there you can find site information or Book onto an event.</h2>
     <hr />
 </div>
 
 <div class="searchEvent text-md-center">
-
-    <form asp-action="searchEvent" method="get">
-        <h2> Search </h2>
-        <label for="SearchString">Search For Event By SiteCode: </label> <input type="text" name="SearchString" id="SearchString" />
-        <div class="searchbuttoncontainer">
-            <input type="submit" runat="server" value="filter" class="searchbutton" onclick="return searchcheck()" />
+    <h2> Search </h2>
+    <form class="form-inline justify-content-center" asp-action="searchEvent" method="get">
+        <div class="form-group">
+            <label class="searchlabel" for="SearchString">Search For Event By SiteCode: </label> <input type="text" name="SearchString" id="SearchString" class="form-control" />
+            <div class="searchbuttoncontainer">
+                <input type="submit" runat="server" value="filter" class="searchbutton btn btn-primary" onclick="return searchcheck()" />
+            </div>
         </div>
     </form>
 </div>
+
 @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
 {
-    <div class="adminEventAdd">
+    <div class="adminSiteadd">
         <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateEvent"> Add New Event <i class="fas fa-plus"></i></a>
     </div>
 }
-<table class="EventTable table table-striped table-responsive">
+<table class="EventTable table table-striped table-responsive ">
     <thead class="thead-dark">
         <tr>
             <th>
@@ -55,13 +57,13 @@
                     @Html.DisplayFor(modelItem => item.Spaces)
                 </td>
                 <td>
-                    <div class="EventDetailsContainer">
-                        <a  class="EventDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                    <div class="SiteDetailsContainer">
+                        <a  class="SiteDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
                     </div>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {
-                        <div class="EventDeleteContainer">
-                            <a class="EventDelete btn btn-danger" asp-controller="CMS" asp-action="DeleteEvent" asp-route-id="@item.EventID"> Delete <i class="fas fa-trash"></i></a>
+                        <div class="SiteDeleteContainer">
+                            <a class="SiteDelete btn btn-danger" asp-controller="CMS" asp-action="DeleteEvent" asp-route-id="@item.EventID"> Delete <i class="fas fa-trash"></i></a>
                         </div>
                     }
                 </td>

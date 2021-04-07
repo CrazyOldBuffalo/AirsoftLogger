@@ -1,31 +1,51 @@
 ﻿@model IEnumerable<AirsoftLogger.Models.SiteDetails>
 @{
-    ViewData["Title"] = "SiteDetails";
+    ViewData["Title"] = Model.FirstOrDefault().SiteName;
     Layout = "ListLayout";
 }
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/js/Scroll.js"></script>
-<script src="~/js/Search.js"></script>
 
-<div class="sitedetailsHeading text-center">
+<div class="siteHeading text-center">
     <h1>Site Details</h1>
     <h2>On this page you'll find all the information on each Site (address, code, etc) and can also view each event this site is running below</h2>
     <hr />
 </div>
-<h3>@Html.DisplayFor(a => a.FirstOrDefault().SiteCode) - @Html.DisplayFor(a => a.FirstOrDefault().SiteName)</h3>
+<div class="SiteInfoContainer">
+    <h3 class="ImportantSiteInfo">@Html.DisplayFor(a => a.FirstOrDefault().SiteCode) - @Html.DisplayFor(a => a.FirstOrDefault().SiteName)</h3>
+    <div class="SiteAddress">
+        <h2 class="AddressTitle">Address:</h2>
+        <h4 class="AddressItem">@Html.DisplayFor(a => a.FirstOrDefault().Street)</h4>
+        <h4 class="AddressItem">@Html.DisplayFor(a => a.FirstOrDefault().City)</h4>
+        <h4 class="AddressItem">@Html.DisplayFor(a => a.FirstOrDefault().Postcode)</h4>
+    </div>
+    <div class="SiteContact">
+        <h2 class="ContactTitle">Contact Information:</h2>
+        <h4 class="ContactItem">Tel: @Html.DisplayFor(a => a.FirstOrDefault().Tel)</h4>
+        <h4 class="ContactItem">Website:  <a class="ContactWebsite" href="@Model.FirstOrDefault().Website"> @Html.DisplayFor(a => a.FirstOrDefault().Website)</a> </h4>
+    </div>
+    <div class="map">
+        <iframe width="500"
+                height="450"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDJbcmOtMPzKfvWk-keN443e_abEYjbX1Q&q=,@Html.DisplayFor(a => a.FirstOrDefault().SiteName)">
+        </iframe>
+    </div>
+</div>
+
 @foreach (var obj in Model)
 {
 
     if (!obj.EventID.Equals(0))
     {
-        <table class="table">
+        <table class="DetailTable table">
             <thead class="thead-dark">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Date)
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Date)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Spaces)
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Spaces)
                     </th>
                     <th> Booking Details </th>
                 </tr>
@@ -60,4 +80,9 @@
             </tbody>
         </table>
     }
+    else
+    {
+        <h3>No Events Here</h3>
+    }
 }
+<button onclick="toppage()" id="Top" title="Go to top">Back To Top</button>

@@ -1,27 +1,27 @@
 ﻿@model SignIn
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sign In";
+    Layout = "Login";
 }
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/js/LoginCheck.js"></script>
-
-<section class="Login fadeInDown container-fluid">
-    <h2 class="LoginTitle form-text fadeIn first">Sign In</h2>
-    <hr class="LoginRule"/>
-    <form class="form fadeIn Second" asp-controller="Security" asp-action="Index" method="post">
-        <div class="form-group">
-            <label class="username col-form-label" asp-for="UserName">Username: </label>
-            <input class="usernameinput form-control fadeIn Third"  type="text" asp-for="UserName" />
-        </div>
-        <div class="form-group">
-            <label class="password col-form-label" asp-for="Password">Password: </label>
-            <input class="passwordinput form-control fadeIn Third" type="password" asp-for="Password" />
-        </div>
-        <div>
-            <button type="submit" class="loginButton btn btn-secondary fadeIn fourth " onclick="return logincheck()">Sign In</button>
-        </div>
-        <div asp-validation-summary="All" class="message"></div>
-    </form>
-</section>
+<div class="loginobject">
+    <section class="Login fadeInDown container-fluid">
+        <h2 class="LoginTitle form-text fadeIn first">Sign In</h2>
+        <hr class="LoginRule" />
+        <form class="form fadeIn Second" asp-controller="Security" asp-action="Index" method="post">
+            <div class="form-group">
+                <label class="username col-form-label" asp-for="UserName">Username: </label>
+                <input class="usernameinput form-control fadeIn Third" type="text" asp-for="UserName" />
+            </div>
+            <div class="form-group">
+                <label class="password col-form-label" asp-for="Password">Password: </label>
+                <input class="passwordinput form-control fadeIn Third" type="password" asp-for="Password" />
+            </div>
+            <div>
+                <button type="submit" class="loginButton btn btn-secondary fadeIn fourth " onclick="return logincheck()">Sign In</button>
+            </div>
+            <div asp-validation-summary="All" class="message"></div>
+        </form>
+    </section>
+</div>
 
