@@ -10,14 +10,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     @if (Context.Request.Cookies["DarkMode"] == "True")
     {
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/DarkMode.css" />
     }
     else
     {
         <link rel="stylesheet" href="~/css/Styles.css" />
     }
-
-    <script src="~/js/JavaScript.js"></script>
     <script src="https://kit.fontawesome.com/917cececc5.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -48,11 +46,11 @@
                 }
                 else
                 {
-                <div class="logoutcontainer">
-                    <form asp-controller="Security" asp-action="Logout" method="post">
-                        <button class="btn btn-primary" type="submit">Logout <i class="fas fa-sign-out-alt"></i></button>
-                    </form>
-                </div>
+                    <div class="logoutcontainer">
+                        <form asp-controller="Security" asp-action="Logout" method="post">
+                            <button class="btn btn-primary" type="submit">Logout <i class="fas fa-sign-out-alt"></i></button>
+                        </form>
+                    </div>
                 }
             </div>
         </nav>
@@ -67,14 +65,27 @@
         <div class="container">
             &copy; 2021 - AirsoftLogger - Tomasz Boberek
         </div>
-        <div class="darkmode">
-            <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
-                <button class="btn btn-dark" type="submit">DarkMode</button>
-            </form>
-        </div>
+        @if (Context.Request.Cookies.ContainsKey("DarkMode"))
+        {
+            <div class="lightmode">
+                <form class="lightmodeform" asp-action="LightMode" asp-controller="home" method="post">
+                    <button class="btn btn-dark" type="submit">LightMode</button>
+                </form>
+            </div>
+        }
+        @if (!Context.Request.Cookies.ContainsKey("DarkMode"))
+        {
+            <div class="darkmode">
+                <form class="darkmodeform" asp-action="DarkMode" asp-controller="home" method="post">
+                    <button class="btn btn-dark" type="submit">DarkMode</button>
+                </form>
+            </div>
+        }
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+    <script src="~/js/Slideshow.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

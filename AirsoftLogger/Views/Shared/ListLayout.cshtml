@@ -3,11 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Airsoft, UK, Airsoft Sites, UK Airsoft, Airsoft Guns, Airsoft Events"/>
-    <meta name="author" content="Tom Boberek"/>
-    <meta name="description" content="Welcome to Airsoft Logger, The only tool that stores all registered UK Airsoft Sites and their upcoming events."/>
+    <meta name="keywords" content="Airsoft, UK, Airsoft Sites, UK Airsoft, Airsoft Guns, Airsoft Events" />
+    <meta name="author" content="Tom Boberek" />
+    <meta name="description" content="Welcome to Airsoft Logger, The only tool that stores all registered UK Airsoft Sites and their upcoming events." />
     <title>@ViewData["Title"] - AirsoftLogger</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @if (Context.Request.Cookies["DarkMode"] == "True")
+    {
+        <link rel="stylesheet" href="~/css/DarkMode.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/css/Styles.css" />
+    }
     <link rel="stylesheet" href="~/css/Styles.css" />
     <script src="~/js/Scroll.js"></script>
     <script src="~/js/Search.js"></script>

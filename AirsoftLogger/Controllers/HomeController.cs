@@ -28,6 +28,10 @@ namespace AirsoftLogger.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             return View();
         }
 
@@ -35,21 +39,38 @@ namespace AirsoftLogger.Controllers
         public IActionResult DarkMode()
         {
             CookieOptions options = new CookieOptions();
-            options.Expires = DateTime.Now.AddDays(7);
+            options.Expires = DateTime.UtcNow.AddDays(7);
             options.HttpOnly = true;
             options.Secure = true;
             HttpContext.Response.Cookies.Append("DarkMode", "True", options);
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpPost]
+        public IActionResult LightMode()
+        {
+            HttpContext.Response.Cookies.Delete("DarkMode");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
         public IActionResult Sites()
         {
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             List<Site> Sitemodel = _Context.Sites.ToList();
             return View(Sitemodel);
         }
 
+        [HttpGet]
         public IActionResult SiteDetails(string id)
         {
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             List<SiteDetails> modelList = new List<SiteDetails>();
             var query = (from s in _Context.Sites
                          join a in _Context.Addresses
@@ -127,8 +148,13 @@ namespace AirsoftLogger.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult SearchSite(String SearchString)
         {
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             var sites = from s in _Context.Sites
                         select s;
             if (!string.IsNullOrEmpty(SearchString))
@@ -144,8 +170,13 @@ namespace AirsoftLogger.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult SearchEvent(String SearchString)
         {
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             var events = from e in _Context.Events
                          select e;
             if(!String.IsNullOrEmpty(SearchString))
@@ -162,18 +193,25 @@ namespace AirsoftLogger.Controllers
                          
         }
 
-        public IActionResult Events(int? page)
+        [HttpGet]
+        public IActionResult Events()
         {
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             List<Events> eventlist = _Context.Events.ToList();
-
-
             return View(eventlist);
         }
 
+        [HttpGet]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateEvents(SiteDetails siteDetails)
         {
-
+            if (Request.Cookies["DarkMode"] == "True")
+            {
+                ViewData["Mode"] = Request.Cookies["DarkMode"];
+            }
             Events eventUpdate = new Events
             {
                 EventID = siteDetails.EventID,

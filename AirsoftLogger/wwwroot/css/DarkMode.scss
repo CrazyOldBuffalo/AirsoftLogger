@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-$HeadColor: #5A613F;
-$BodyColor: #A4BF76;
-$ThirdColor: #ebe1d1;
-$FourthColor: #81746d;
+﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+$HeadColor: #363a26;
+$BodyColor: #52603b;
+$ThirdColor: #D6C2A3;
+$FourthColor: #73655D;
 
 html {
     width: 100%;
@@ -11,12 +11,14 @@ html {
 body {
     font-family: "Montserrat";
     background-color: $BodyColor;
+    color: $ThirdColor;
     width: 100%;
 }
 
 .navbar {
     background-color: $HeadColor;
     width: 100%;
+
     .navbar-brand {
         color: white;
     }
@@ -31,6 +33,7 @@ body {
             color: white;
             text-decoration: none;
             text-align: center;
+
             &:hover {
                 color: black;
             }
@@ -39,6 +42,7 @@ body {
 }
 
 .header {
+    color: $ThirdColor;
     .text-center {
         .display-2 {
             font-size: 4em;
@@ -58,15 +62,18 @@ body {
         }
     }
 }
+
 .logincontainer {
     .btn {
         cursor: pointer;
         background: $FourthColor;
         border-color: $FourthColor;
+
         .btn-primary {
         }
     }
 }
+
 .slideshow-container {
     z-index: 1;
 
@@ -122,12 +129,12 @@ body {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99; 
+    z-index: 99;
     border: none;
     outline: none;
-    background-color: red; 
-    color: white; 
-    cursor: pointer; 
+    background-color: red;
+    color: white;
+    cursor: pointer;
     padding: 15px;
     border-radius: 10px;
     font-size: 18px;

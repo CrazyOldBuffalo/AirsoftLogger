@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+html {
+  width: 100%;
+}
+
+body {
+  font-family: "Montserrat";
+  background-color: #52603b;
+  color: #D6C2A3;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #363a26;
+  width: 100%;
+}
+.navbar .navbar-brand {
+  color: white;
+}
+.navbar .nav-item:hover {
+  background-color: #52603b;
+  border-radius: 25px;
+}
+.navbar .nav-item .nav-link {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+.navbar .nav-item .nav-link:hover {
+  color: black;
+}
+
+.header {
+  color: #D6C2A3;
+}
+.header .text-center .display-2 {
+  font-size: 4em;
+  padding: 4rem;
+  text-align: center;
+  margin: 0.5rem;
+}
+.header .text-center .display-3 {
+  padding: 1rem;
+  font-size: 3em;
+}
+.header .text-center .display-4 {
+  padding: 0.5rem;
+  font-size: 2em;
+}
+
+.logincontainer .btn {
+  cursor: pointer;
+  background: #73655D;
+  border-color: #73655D;
+}
+.slideshow-container {
+  z-index: 1;
+  padding: 4em;
+  max-width: 50vw;
+  margin: auto;
+}
+@media only screen and (max-width: 300px) {
+  .slideshow-container .text {
+    font-size: 11px;
+  }
+}
+.slideshow-container .mySlides {
+  display: none;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slideshow-container .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 4.5s;
+  animation-name: fade;
+  animation-duration: 4.5s;
+}
+
+#Top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+#Top:hover {
+  background-color: #555;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.Login {
+  background-color: #363a26;
+  align-content: center;
+  padding: 1.5rem;
+  color: antiquewhite;
+  border-radius: 10px;
+  width: 60%;
+  margin: auto;
+  overflow-wrap: break-word;
+}
+.Login .LoginRule {
+  border-top: 2px solid antiquewhite;
+  padding: 0.5em;
+}
+.Login .form-group {
+  overflow-wrap: break-word;
+}
+.Login .LoginTitle {
+  text-align: center;
+  font-size: 2rem;
+}
+.Login .username {
+  font-size: 1rem;
+}
+.Login .password {
+  font-size: 1rem;
+}
+.Login .loginButton {
+  background-color: #73655D;
+}
+.Login .loginButton:hover {
+  background-color: #8f847d;
+}
+.Login .fadeIn {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.Login .fadeIn .first {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.Login .fadeIn .second {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.Login .fadeIn .third {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.Login .fadeIn .fourth {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+/*# sourceMappingURL=Styles.scss.map */
+
+/*# sourceMappingURL=DarkMode.css.map */
