@@ -1,6 +1,6 @@
 ﻿@model IQueryable<AirsoftLogger.Models.SiteForm>
 @{
-    ViewData["Title"] = "Edit Site " + @Model.FirstOrDefault().SiteName;
+    ViewData["Title"] = "Edit Site " + @Model.FirstOrDefault().SiteCode;
     Layout = "CMS";
 }
 
@@ -12,7 +12,7 @@
 
 <section class="EditSite fadeInDown container-fluid">
     <h2 class="EditEventTitle fadeIn First text-center"> Edit Site @Model.FirstOrDefault().SiteName </h2>
-    <form class="EditSiteForm fadeIn Second" asp-controller="CMS" asp-action="UpdateSite">
+    <form class="EditSiteForm fadeIn Second" asp-controller="CMS" asp-action="EditSite">
         <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
         <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
         <div class="row">

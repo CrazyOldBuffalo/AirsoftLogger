@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AirsoftLogger.Controllers
 {
-    [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Administrator, Manager")]
     public class CMS : Controller
     {
 
@@ -26,27 +26,6 @@ namespace AirsoftLogger.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public IActionResult EditSite(string id)
-        {
-            var editsite = (
-                from s in _Context.Sites
-                join a in _Context.Addresses
-                on s.Postcode equals a.Postcode
-                where s.SiteCode == id
-                select new SiteForm
-                {
-                    SiteCode = s.SiteCode,
-                    SiteName = s.SiteName,
-                    Postcode = s.Postcode,
-                    Tel = s.Tel,
-                    Website = s.Website,
-                    Street = a.Street,
-                    City = a.City,
-
-                });
-            return View(editsite);
-        }
 
         [HttpGet]
         public IActionResult CreateSite()
@@ -87,8 +66,32 @@ namespace AirsoftLogger.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public IActionResult EditSite(string id)
+        {
+            var editsite = (
+                from s in _Context.Sites
+                join a in _Context.Addresses
+                on s.Postcode equals a.Postcode
+                where s.SiteCode == id
+                select new SiteForm
+                {
+                    SiteCode = s.SiteCode,
+                    SiteName = s.SiteName,
+                    Postcode = s.Postcode,
+                    Tel = s.Tel,
+                    Website = s.Website,
+                    Street = a.Street,
+                    City = a.City,
+
+                });
+            return View(editsite);
+        }
+
         [HttpPost]
-        public IActionResult UpdateSite(SiteForm site)
+        [ValidateAntiForgeryToken]
+        public IActionResult EditSite(SiteForm site)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +114,7 @@ namespace AirsoftLogger.Controllers
                 _Context.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+            return RedirectToAction("Index", "Sites");
         }
 
         [Authorize(Roles = "Manager")]
@@ -233,7 +236,7 @@ namespace AirsoftLogger.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateSite(AddSite addSite)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && (_Context.Sites.Find(addSite.SiteCode) == null && _Context.Addresses.Find(addSite.Postcode) == null))
             {
                 Site newSite = new Site
                 {
@@ -252,8 +255,9 @@ namespace AirsoftLogger.Controllers
                 _Context.Sites.Add(newSite);
                 _Context.Addresses.Add(newAddress);
                 _Context.SaveChanges();
+                return RedirectToAction("Sites", "Home");
             }
-            return RedirectToAction("Sites", "Home");
+            return View();
         }
     }
 }
