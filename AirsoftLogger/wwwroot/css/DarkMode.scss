@@ -1,7 +1,7 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-$HeadColor: #363a26;
-$BodyColor: #52603b;
-$ThirdColor: #D6C2A3;
+$HeadColor: #464A47;
+$BodyColor: #3B3B3B;
+$ThirdColor: #5C5346;
 $FourthColor: #73655D;
 
 html {
@@ -11,7 +11,6 @@ html {
 body {
     font-family: "Montserrat";
     background-color: $BodyColor;
-    color: $ThirdColor;
     width: 100%;
 }
 
@@ -30,19 +29,19 @@ body {
         }
 
         .nav-link {
-            color: white;
+            color: #c9d1d9;
             text-decoration: none;
             text-align: center;
 
             &:hover {
-                color: black;
+                color: #c9d1d9;
             }
         }
     }
 }
 
 .header {
-    color: $ThirdColor;
+    color: #c9d1d9; 
     .text-center {
         .display-2 {
             font-size: 4em;
@@ -53,7 +52,7 @@ body {
 
         .display-3 {
             padding: 1rem;
-            font-size: 3em;
+            font-size: 2em;
         }
 
         .display-4 {
@@ -69,7 +68,41 @@ body {
         background: $FourthColor;
         border-color: $FourthColor;
 
-        .btn-primary {
+        &:hover {
+            background-color: $ThirdColor;
+            color: #c9d1d9;
+        }
+    }
+}
+
+.logoutcontainer {
+    .btn {
+        cursor: pointer;
+        background: $FourthColor;
+        border-color: $FourthColor;
+
+        &:hover {
+            background-color: $ThirdColor;
+            color: #c9d1d9;
+        }
+    }
+}
+
+.footer {
+    padding: .5rem;
+    background-color: $HeadColor;
+
+    .container {
+        align-content: center;
+        font-size: 12px;
+        color: white;
+
+        .lightmode {
+            padding: 5px;
+        }
+
+        .darkmode {
+            padding: 5px;
         }
     }
 }
@@ -84,7 +117,7 @@ body {
     }
 
     padding: 4em;
-    max-width: 50vw;
+    max-width: 75vw;
     margin: auto;
 
     .mySlides {
@@ -119,20 +152,337 @@ body {
     }
 }
 
+.adminSiteadd {
+    padding: 1rem;
+    align-content: center;
+}
+
+.CreateEvent {
+    width: 50%;
+    margin: auto;
+    background-color: $HeadColor;
+    border-radius: 20px;
+    padding: 1rem;
+    color: antiquewhite;
+
+    .row {
+        padding-left: 25px;
+    }
+
+    .btn {
+        background-color: $FourthColor;
+        border-color: $FourthColor;
+
+        &:hover {
+            background-color: $ThirdColor;
+            color: black;
+        }
+    }
+}
+
+.CreateSite {
+    width: 50%;
+    margin: auto;
+    background-color: $HeadColor;
+    border-radius: 20px;
+    padding: 1rem;
+    color: antiquewhite;
+
+    .row {
+        padding-left: 25px;
+    }
+
+    .btn {
+        background-color: $FourthColor;
+        border-color: $FourthColor;
+
+        &:hover {
+            background-color: $ThirdColor;
+            color: black;
+        }
+    }
+}
+
+.EditSite {
+    width: 50%;
+    margin: auto;
+    background-color: $HeadColor;
+    border-radius: 20px;
+    padding: 1rem;
+    color: antiquewhite;
+
+    .row {
+        padding-left: 25px;
+    }
+
+    .btn {
+        background-color: $FourthColor;
+        border-color: $FourthColor;
+
+        &:hover {
+            background-color: $ThirdColor;
+            color: black;
+        }
+    }
+}
+
+.SiteInfoContainer {
+    background-color: $HeadColor;
+    border-radius: 10px;
+    padding: 1rem;
+    color: white;
+
+    .ImportantSiteInfo {
+        padding: 0.2rem;
+        font-size: 2em;
+    }
+
+    .SiteAddress {
+        padding: 1rem;
+
+        .AddressTitle {
+            font-size: 2em;
+        }
+
+        .AddressItem {
+            font-size: 1.5em;
+            padding-left: 1rem;
+        }
+    }
+
+    .SiteContact {
+        padding: 1rem;
+
+        .ContactTitle {
+            font-size: 2em;
+        }
+
+        .ContactItem {
+            font-size: 1.5em;
+            padding-left: 1rem;
+        }
+
+        .ContactWebsite {
+            text-decoration: none;
+            cursor: pointer;
+            color: antiquewhite;
+            text-align: center;
+        }
+    }
+}
+
+.DetailTable {
+    color:#c9d1d9; 
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.loginobject {
+    margin: 3rem, 0, 3rem, 0;
+}
+
+@media only screen and (min-width: 700px) {
+    .map {
+        display: block;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 699px) {
+    .map {
+        display: none;
+    }
+}
+
+.siteHeading {
+    color:#c9d1d9; 
+    .text-center {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    hr {
+        border-bottom: solid 2px antiquewhite;
+    }
+}
+
+.searchSite {
+    color: #c9d1d9;
+    width: fit-content();
+    border: solid 1px antiquewhite;
+    margin: auto;
+    padding: 1rem;
+
+    .searchlabel {
+        padding: 0.7rem;
+    }
+
+    .form-group {
+        padding: 0.5rem;
+    }
+
+    .searchbuttoncontainer {
+        padding-left: 1rem;
+
+        .searchbutton {
+            background-color: $FourthColor;
+            border-color: $FourthColor;
+
+            &:hover {
+                background-color: $ThirdColor;
+                color: black;
+            }
+        }
+    }
+}
+
+.SiteTableTop {
+    padding: 1.5rem;
+    color:#c9d1d9;
+    h2 {
+        font-size: 2em;
+    }
+}
+
+.EventTable {
+    color: #c9d1d9; 
+    align-content: center;
+    margin: auto;
+    padding: 0.5rem;
+
+    td {
+        .websitelink {
+            text-decoration: none;
+            cursor: pointer;
+            color: #58504c;
+            text-align: center;
+        }
+    }
+
+    .thead-dark {
+        background-color: $HeadColor;
+        color: antiquewhite;
+    }
 
 
 
+    .SiteDetailsContainer {
+        padding: 0.5rem 0 0 0;
 
+        .SiteDetails {
+            background-color: $FourthColor;
+            border-color: $FourthColor;
+
+            &:hover {
+                background-color: $ThirdColor;
+                color: black;
+            }
+        }
+    }
+
+    .SiteUpdateContainer {
+        padding: 0.5rem 0 0 0;
+
+        .SiteUpdate {
+            background-color: $HeadColor;
+            border-color: $HeadColor;
+
+            &:hover {
+                background-color: #6b7152;
+                color: black;
+            }
+        }
+    }
+
+    .SiteDeleteContainer {
+        padding: 0.5rem 0 0 0;
+    }
+}
+
+.Deletecontainer {
+    padding: 2em;
+    border-radius: 10px;
+    background-color: $HeadColor;
+    color: antiquewhite;
+    width: 50%;
+    margin: auto;
+    align-content: center;
+
+    .deleteText {
+        color: antiquewhite;
+        padding-right: 1em;
+    }
+}
+
+.SiteTable {
+    align-content: center;
+    color: #c9d1d9;
+
+    td {
+        .websitelink {
+            text-decoration: none;
+            cursor: pointer;
+            color: #c9d1d9;
+            text-align: center;
+        }
+    }
+
+    .thead-dark {
+        background-color: $HeadColor;
+        color: antiquewhite;
+    }
+
+
+
+    .SiteDetailsContainer {
+        padding: 0.5rem 0 0 0;
+
+        .SiteDetails {
+            background-color: $FourthColor;
+            border-color: $FourthColor;
+
+            &:hover {
+                background-color: $ThirdColor;
+                color: black;
+            }
+        }
+    }
+
+    .SiteUpdateContainer {
+        padding: 0.5rem 0 0 0;
+
+        .SiteUpdate {
+            background-color: $HeadColor;
+            border-color: $HeadColor;
+
+            &:hover {
+                background-color: #6b7152;
+                color: black;
+            }
+        }
+    }
+
+    .SiteDeleteContainer {
+        padding: 0.5rem 0 0 0;
+    }
+}
 
 #Top {
     display: none;
     position: fixed;
-    bottom: 20px;
-    right: 30px;
+    bottom: 85px;
+    right: 40px;
     z-index: 99;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: $FourthColor;
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -140,10 +490,58 @@ body {
     font-size: 18px;
 
     &:hover {
-        background-color: #555;
+        background-color: #5c514a;
     }
 }
 
+.eventHeading {
+    color: #c9d1d9;
+    .text-center {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    hr {
+        border-bottom: solid 2px antiquewhite;
+    }
+}
+
+.searchEvent {
+    color: #c9d1d9; 
+    width: fit-content();
+    border: solid 1px antiquewhite;
+    margin: auto;
+    padding: 1rem;
+
+    .searchlabel {
+        padding: 0.7rem;
+    }
+
+    .form-group {
+        padding: 0.5rem;
+    }
+
+    .searchbuttoncontainer {
+        padding-left: 1rem;
+
+        .searchbutton {
+            background-color: $FourthColor;
+            border-color: $FourthColor;
+
+            &:hover {
+                background-color: $ThirdColor;
+                color: black;
+            }
+        }
+    }
+}
 
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
@@ -216,6 +614,7 @@ body {
     background-color: $HeadColor;
     align-content: center;
     padding: 1.5rem;
+    margin: 4rem 0 4rem 0;
     color: antiquewhite;
     border-radius: 10px;
     width: 60%;

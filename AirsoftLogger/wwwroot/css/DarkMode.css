@@ -5,33 +5,32 @@ html {
 
 body {
   font-family: "Montserrat";
-  background-color: #52603b;
-  color: #D6C2A3;
+  background-color: #3B3B3B;
   width: 100%;
 }
 
 .navbar {
-  background-color: #363a26;
+  background-color: #464A47;
   width: 100%;
 }
 .navbar .navbar-brand {
   color: white;
 }
 .navbar .nav-item:hover {
-  background-color: #52603b;
+  background-color: #3B3B3B;
   border-radius: 25px;
 }
 .navbar .nav-item .nav-link {
-  color: white;
+  color: #c9d1d9;
   text-decoration: none;
   text-align: center;
 }
 .navbar .nav-item .nav-link:hover {
-  color: black;
+  color: #c9d1d9;
 }
 
 .header {
-  color: #D6C2A3;
+  color: #c9d1d9;
 }
 .header .text-center .display-2 {
   font-size: 4em;
@@ -41,7 +40,7 @@ body {
 }
 .header .text-center .display-3 {
   padding: 1rem;
-  font-size: 3em;
+  font-size: 2em;
 }
 .header .text-center .display-4 {
   padding: 0.5rem;
@@ -53,10 +52,41 @@ body {
   background: #73655D;
   border-color: #73655D;
 }
+.logincontainer .btn:hover {
+  background-color: #5C5346;
+  color: #c9d1d9;
+}
+
+.logoutcontainer .btn {
+  cursor: pointer;
+  background: #73655D;
+  border-color: #73655D;
+}
+.logoutcontainer .btn:hover {
+  background-color: #5C5346;
+  color: #c9d1d9;
+}
+
+.footer {
+  padding: 0.5rem;
+  background-color: #464A47;
+}
+.footer .container {
+  align-content: center;
+  font-size: 12px;
+  color: white;
+}
+.footer .container .lightmode {
+  padding: 5px;
+}
+.footer .container .darkmode {
+  padding: 5px;
+}
+
 .slideshow-container {
   z-index: 1;
   padding: 4em;
-  max-width: 50vw;
+  max-width: 75vw;
   margin: auto;
 }
 @media only screen and (max-width: 300px) {
@@ -90,15 +120,283 @@ body {
   animation-duration: 4.5s;
 }
 
+.adminSiteadd {
+  padding: 1rem;
+  align-content: center;
+}
+
+.CreateEvent {
+  width: 50%;
+  margin: auto;
+  background-color: #464A47;
+  border-radius: 20px;
+  padding: 1rem;
+  color: antiquewhite;
+}
+.CreateEvent .row {
+  padding-left: 25px;
+}
+.CreateEvent .btn {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.CreateEvent .btn:hover {
+  background-color: #5C5346;
+  color: black;
+}
+
+.CreateSite {
+  width: 50%;
+  margin: auto;
+  background-color: #464A47;
+  border-radius: 20px;
+  padding: 1rem;
+  color: antiquewhite;
+}
+.CreateSite .row {
+  padding-left: 25px;
+}
+.CreateSite .btn {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.CreateSite .btn:hover {
+  background-color: #5C5346;
+  color: black;
+}
+
+.EditSite {
+  width: 50%;
+  margin: auto;
+  background-color: #464A47;
+  border-radius: 20px;
+  padding: 1rem;
+  color: antiquewhite;
+}
+.EditSite .row {
+  padding-left: 25px;
+}
+.EditSite .btn {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.EditSite .btn:hover {
+  background-color: #5C5346;
+  color: black;
+}
+
+.SiteInfoContainer {
+  background-color: #464A47;
+  border-radius: 10px;
+  padding: 1rem;
+  color: white;
+}
+.SiteInfoContainer .ImportantSiteInfo {
+  padding: 0.2rem;
+  font-size: 2em;
+}
+.SiteInfoContainer .SiteAddress {
+  padding: 1rem;
+}
+.SiteInfoContainer .SiteAddress .AddressTitle {
+  font-size: 2em;
+}
+.SiteInfoContainer .SiteAddress .AddressItem {
+  font-size: 1.5em;
+  padding-left: 1rem;
+}
+.SiteInfoContainer .SiteContact {
+  padding: 1rem;
+}
+.SiteInfoContainer .SiteContact .ContactTitle {
+  font-size: 2em;
+}
+.SiteInfoContainer .SiteContact .ContactItem {
+  font-size: 1.5em;
+  padding-left: 1rem;
+}
+.SiteInfoContainer .SiteContact .ContactWebsite {
+  text-decoration: none;
+  cursor: pointer;
+  color: antiquewhite;
+  text-align: center;
+}
+
+.DetailTable {
+  color: #c9d1d9;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.loginobject {
+  margin: 3rem, 0, 3rem, 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .map {
+    display: block;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 699px) {
+  .map {
+    display: none;
+  }
+}
+.siteHeading {
+  color: #c9d1d9;
+}
+.siteHeading .text-center {
+  padding: 2rem;
+}
+.siteHeading h1 {
+  font-size: 4em;
+}
+.siteHeading h2 {
+  font-size: 2em;
+}
+.siteHeading hr {
+  border-bottom: solid 2px antiquewhite;
+}
+
+.searchSite {
+  color: #c9d1d9;
+  width: fit-content();
+  border: solid 1px antiquewhite;
+  margin: auto;
+  padding: 1rem;
+}
+.searchSite .searchlabel {
+  padding: 0.7rem;
+}
+.searchSite .form-group {
+  padding: 0.5rem;
+}
+.searchSite .searchbuttoncontainer {
+  padding-left: 1rem;
+}
+.searchSite .searchbuttoncontainer .searchbutton {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.searchSite .searchbuttoncontainer .searchbutton:hover {
+  background-color: #5C5346;
+  color: black;
+}
+
+.SiteTableTop {
+  padding: 1.5rem;
+  color: #c9d1d9;
+}
+.SiteTableTop h2 {
+  font-size: 2em;
+}
+
+.EventTable {
+  color: #c9d1d9;
+  align-content: center;
+  margin: auto;
+  padding: 0.5rem;
+}
+.EventTable td .websitelink {
+  text-decoration: none;
+  cursor: pointer;
+  color: #58504c;
+  text-align: center;
+}
+.EventTable .thead-dark {
+  background-color: #464A47;
+  color: antiquewhite;
+}
+.EventTable .SiteDetailsContainer {
+  padding: 0.5rem 0 0 0;
+}
+.EventTable .SiteDetailsContainer .SiteDetails {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.EventTable .SiteDetailsContainer .SiteDetails:hover {
+  background-color: #5C5346;
+  color: black;
+}
+.EventTable .SiteUpdateContainer {
+  padding: 0.5rem 0 0 0;
+}
+.EventTable .SiteUpdateContainer .SiteUpdate {
+  background-color: #464A47;
+  border-color: #464A47;
+}
+.EventTable .SiteUpdateContainer .SiteUpdate:hover {
+  background-color: #6b7152;
+  color: black;
+}
+.EventTable .SiteDeleteContainer {
+  padding: 0.5rem 0 0 0;
+}
+
+.Deletecontainer {
+  padding: 2em;
+  border-radius: 10px;
+  background-color: #464A47;
+  color: antiquewhite;
+  width: 50%;
+  margin: auto;
+  align-content: center;
+}
+.Deletecontainer .deleteText {
+  color: antiquewhite;
+  padding-right: 1em;
+}
+
+.SiteTable {
+  align-content: center;
+  color: #c9d1d9;
+}
+.SiteTable td .websitelink {
+  text-decoration: none;
+  cursor: pointer;
+  color: #c9d1d9;
+  text-align: center;
+}
+.SiteTable .thead-dark {
+  background-color: #464A47;
+  color: antiquewhite;
+}
+.SiteTable .SiteDetailsContainer {
+  padding: 0.5rem 0 0 0;
+}
+.SiteTable .SiteDetailsContainer .SiteDetails {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.SiteTable .SiteDetailsContainer .SiteDetails:hover {
+  background-color: #5C5346;
+  color: black;
+}
+.SiteTable .SiteUpdateContainer {
+  padding: 0.5rem 0 0 0;
+}
+.SiteTable .SiteUpdateContainer .SiteUpdate {
+  background-color: #464A47;
+  border-color: #464A47;
+}
+.SiteTable .SiteUpdateContainer .SiteUpdate:hover {
+  background-color: #6b7152;
+  color: black;
+}
+.SiteTable .SiteDeleteContainer {
+  padding: 0.5rem 0 0 0;
+}
+
 #Top {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 85px;
+  right: 40px;
   z-index: 99;
   border: none;
   outline: none;
-  background-color: red;
+  background-color: #73655D;
   color: white;
   cursor: pointer;
   padding: 15px;
@@ -106,7 +404,48 @@ body {
   font-size: 18px;
 }
 #Top:hover {
-  background-color: #555;
+  background-color: #5c514a;
+}
+
+.eventHeading {
+  color: #c9d1d9;
+}
+.eventHeading .text-center {
+  padding: 2rem;
+}
+.eventHeading h1 {
+  font-size: 4em;
+}
+.eventHeading h2 {
+  font-size: 2em;
+}
+.eventHeading hr {
+  border-bottom: solid 2px antiquewhite;
+}
+
+.searchEvent {
+  color: #c9d1d9;
+  width: fit-content();
+  border: solid 1px antiquewhite;
+  margin: auto;
+  padding: 1rem;
+}
+.searchEvent .searchlabel {
+  padding: 0.7rem;
+}
+.searchEvent .form-group {
+  padding: 0.5rem;
+}
+.searchEvent .searchbuttoncontainer {
+  padding-left: 1rem;
+}
+.searchEvent .searchbuttoncontainer .searchbutton {
+  background-color: #73655D;
+  border-color: #73655D;
+}
+.searchEvent .searchbuttoncontainer .searchbutton:hover {
+  background-color: #5C5346;
+  color: black;
 }
 
 .fadeInDown {
@@ -167,9 +506,10 @@ body {
   }
 }
 .Login {
-  background-color: #363a26;
+  background-color: #464A47;
   align-content: center;
   padding: 1.5rem;
+  margin: 4rem 0 4rem 0;
   color: antiquewhite;
   border-radius: 10px;
   width: 60%;
