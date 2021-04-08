@@ -122,6 +122,46 @@ body {
   align-content: center;
 }
 
+.CreateEvent {
+  width: 50%;
+  margin: auto;
+  background-color: #5A613F;
+  border-radius: 20px;
+  padding: 1rem;
+  color: antiquewhite;
+}
+.CreateEvent .row {
+  padding-left: 25px;
+}
+.CreateEvent .btn {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.CreateEvent .btn:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+
+.CreateSite {
+  width: 50%;
+  margin: auto;
+  background-color: #5A613F;
+  border-radius: 20px;
+  padding: 1rem;
+  color: antiquewhite;
+}
+.CreateSite .row {
+  padding-left: 25px;
+}
+.CreateSite .btn {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.CreateSite .btn:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+
 .SiteInfoContainer {
   background-color: #5A613F;
   border-radius: 10px;

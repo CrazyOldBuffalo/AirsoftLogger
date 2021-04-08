@@ -150,8 +150,54 @@ body {
 .adminSiteadd {
     padding: 1rem;
     align-content: center;
+    
 }
 
+.CreateEvent {
+    width: 50%;
+    margin: auto;
+    background-color: $HeadColor;
+    border-radius: 20px;
+    padding: 1rem;
+    color: antiquewhite;
+
+    .row {
+        padding-left: 25px;
+    }
+
+    .btn {
+        background-color: $FourthColor;
+        border-color: $FourthColor;
+
+        &:hover {
+            background-color: $ThirdColor;
+            color: black;
+        }
+    }
+}
+
+.CreateSite {
+    width: 50%;
+    margin: auto;
+    background-color: $HeadColor;
+    border-radius: 20px;
+    padding: 1rem;
+    color: antiquewhite;
+
+    .row {
+        padding-left: 25px;
+    }
+
+    .btn {
+        background-color: $FourthColor;
+        border-color: $FourthColor;
+
+        &:hover {
+            background-color: $ThirdColor;
+            color: black;
+        }
+    }
+}
 .SiteInfoContainer {
     background-color: $HeadColor;
     border-radius: 10px;

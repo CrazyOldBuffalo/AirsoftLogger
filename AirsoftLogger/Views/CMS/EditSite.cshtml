@@ -1,6 +1,6 @@
 ﻿@model IQueryable<AirsoftLogger.Models.SiteForm>
 @{
-    ViewData["Title"] = "EditSite";
+    ViewData["Title"] = "Edit Site " + @Model.FirstOrDefault().SiteName;
     Layout = "CMS";
 }
 
