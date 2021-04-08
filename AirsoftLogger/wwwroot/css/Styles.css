@@ -162,6 +162,26 @@ body {
   color: black;
 }
 
+.EditSite {
+  width: 50%;
+  margin: auto;
+  background-color: #5A613F;
+  border-radius: 20px;
+  padding: 1rem;
+  color: antiquewhite;
+}
+.EditSite .row {
+  padding-left: 25px;
+}
+.EditSite .btn {
+  background-color: #81746d;
+  border-color: #81746d;
+}
+.EditSite .btn:hover {
+  background-color: #ebe1d1;
+  color: black;
+}
+
 .SiteInfoContainer {
   background-color: #5A613F;
   border-radius: 10px;
