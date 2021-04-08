@@ -6,16 +6,16 @@
 
 <div class="loginobject">
     <section class="Login fadeInDown container-fluid">
-        <h2 class="LoginTitle form-text fadeIn first">Sign In</h2>
+        <h2 class="LoginTitle fadeIn first">Sign In</h2>
         <hr class="LoginRule" />
         <form class="form fadeIn Second" asp-controller="Security" asp-action="Index" method="post">
             <div class="form-group">
                 <label class="username col-form-label" asp-for="UserName">Username: </label>
-                <input class="usernameinput form-control fadeIn Third" type="text" asp-for="UserName" />
+                <input class="usernameinput form-control fadeIn Third" type="text" asp-for="UserName" placeholder="Username"/>
             </div>
             <div class="form-group">
                 <label class="password col-form-label" asp-for="Password">Password: </label>
-                <input class="passwordinput form-control fadeIn Third" type="password" asp-for="Password" />
+                <input class="passwordinput form-control fadeIn Third" type="password" asp-for="Password" placeholder="Password"/>
             </div>
             <div>
                 <button type="submit" class="loginButton btn btn-secondary fadeIn fourth " onclick="return logincheck()">Sign In</button>

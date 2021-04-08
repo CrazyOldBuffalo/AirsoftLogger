@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Access Denied";
+    Layout = "CMS";
 }
 <div class="Denied text-center">
-    <h2 class="Error"> You are Not Authorised to view this page</h2>
+    <h2 class="Error text-danger"> You are Not Authorised to view this page</h2>
     <a class="Return btn btn-danger" asp-action="Index" asp-controller="Home">Take Me Home</a>
 </div>

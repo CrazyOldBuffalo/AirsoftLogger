@@ -1,51 +1,64 @@
 ﻿@model IQueryable<AirsoftLogger.Models.SiteForm>
 @{
-    ViewData["Title"] = "EditSite";
+    ViewData["Title"] = "Edit Site " + @Model.FirstOrDefault().SiteName;
     Layout = "CMS";
 }
 
-<div class="editsiteHeading text-center">
+<div class="siteHeading text-center">
     <h1>Site Editing</h1>
     <h2>Use This page to Edit the Selected Site</h2>
     <hr />
 </div>
 
-<form asp-controller="CMS" asp-action="UpdateSite">
-    <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
-    <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
-    <div>
-        <label>Site Name</label>
-        <input asp-for="FirstOrDefault().SiteName" />
-        <span asp-validation-for="FirstOrDefault().SiteName" class="error"></span>
-    </div>
+<section class="EditSite fadeInDown container-fluid">
+    <h2 class="EditEventTitle fadeIn First text-center"> Edit Site @Model.FirstOrDefault().SiteName </h2>
+    <form class="EditSiteForm fadeIn Second" asp-controller="CMS" asp-action="UpdateSite">
+        <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
+        <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
+        <div class="row">
+            <div class="form-group">
+                <label class="siteName col-form-label">Site Name</label>
+                <input class="form-control col-sm fadeIn Third" asp-for="FirstOrDefault().SiteName" />
+                <span asp-validation-for="FirstOrDefault().SiteName" class="error"></span>
+            </div>
+        </div>
 
-    <div>
-        <label asp-for="FirstOrDefault().Website">Website</label>
-        <input type="url" asp-for="FirstOrDefault().Website" />
-        <span asp-validation-for="FirstOrDefault().Website" class="error"></span>
-    </div>
+        <div class="row">
+            <div class="form-group ">
+                <label class="website col-form-label" asp-for="FirstOrDefault().Website">Website</label>
+                <input class="form-control fadeIn Third" type="url" asp-for="FirstOrDefault().Website" />
+                <span asp-validation-for="FirstOrDefault().Website" class="error"></span>
+            </div>
+        </div>
 
-    <div>
-        <label asp-for="FirstOrDefault().Tel">Phone Number</label>
-        <input type="tel" asp-for="FirstOrDefault().Tel"/>
-        <span asp-validation-for="FirstOrDefault().Tel" class="error"></span>
-    </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="phonenumber col-form-label" asp-for="FirstOrDefault().Tel">Phone Number</label>
+                <input class="form-control col-sm fadeIn Third" type="tel" asp-for="FirstOrDefault().Tel" />
+                <span asp-validation-for="FirstOrDefault().Tel" class="error"></span>
+            </div>
+        </div>
 
-    <div>
-        <label asp-for="FirstOrDefault().Street">Street</label>
-        <input type="text" asp-for="FirstOrDefault().Street" />
-        <span asp-validation-for="FirstOrDefault().Street" class="error"></span>
-    </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="street col-form-label" asp-for="FirstOrDefault().Street">Street</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="FirstOrDefault().Street" />
+                <span asp-validation-for="FirstOrDefault().Street" class="error"></span>
+            </div>
+        </div>
 
-    <div>
-        <label asp-for="FirstOrDefault().City">City</label>
-        <input type="text" asp-for="FirstOrDefault().City" />
-        <span asp-validation-for="FirstOrDefault().City" class="error"></span>
-    </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="city col-form-label" asp-for="FirstOrDefault().City">City</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="FirstOrDefault().City" />
+                <span asp-validation-for="FirstOrDefault().City" class="error"></span>
+            </div>
+        </div>
 
-    <div>
-        <input type="submit" value="Update" class="btn btn-primary" />
-    </div>
+        <div class="row">
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
 
-</form>
+    </form>
+</section>
 

@@ -28,7 +28,7 @@
 </div>
 
 
-@if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+@if (User.Identity.IsAuthenticated && (User.IsInRole("Manager") || User.IsInRole("Administrator")))
 {
     <div class="adminSiteadd text-center">
         <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateSite"> Add New <i class="fas fa-plus"></i></a>
@@ -67,11 +67,14 @@
                     <div class="SiteDetailsContainer">
                         <a class="SiteDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
                     </div>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+                    @if (User.Identity.IsAuthenticated && (User.IsInRole("Manager") || User.IsInRole("Administrator")))
                     {
                         <div class="SiteUpdateContainer">
                             <a class="SiteUpdate btn btn-primary" asp-controller="CMS" asp-action="EditSite" asp-route-id="@item.SiteCode"> Update <i class="fas fa-pencil-alt"></i></a>
                         </div>
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+                    {
                         <div class="SiteDeleteContainer">
                             <a class="SiteDelete btn btn-danger" asp-controller="CMS" asp-action="DeleteSite" asp-route-id="@item.SiteCode"> Delete <i class="fas fa-trash"></i></a>
                         </div>

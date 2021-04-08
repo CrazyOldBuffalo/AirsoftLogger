@@ -3,27 +3,26 @@
     ViewData["Title"] = "Delete Site";
     Layout = "CMS";
 }
-<div class="sitedeleteHeading text-center">
+<div class="siteHeading text-center">
     <h1>Site Deletion</h1>
-    <h2>Use this page to Delete the selected site and It's Associated address from the database, WARNING THIS IS PERMENANT</h2>
+    <h2>Use this page to Delete the selected site and It's Associated address from the database,  <span class="text-danger">WARNING THIS IS PERMENANT</span></h2>
     <hr />
 </div>
-<form class="DeleteSiteForm" method="post">
+<div class="Deletecontainer">
+    <form class="DeleteSiteForm" method="post">
 
-    <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
-    <input type="hidden" name="Tel" value="@Model.FirstOrDefault().Tel" />
-    <input type="hidden" name="City" value="@Model.FirstOrDefault().City" />
-    <input type="hidden" name="Street" value="@Model.FirstOrDefault().Street" />
-    <input type="hidden" name="SiteName" value="@Model.FirstOrDefault().SiteName" />
-    <input type="hidden" name="Website" value="@Model.FirstOrDefault().Website" />
-    <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
-    @foreach (var item in Model)
-    {
-        <input type="hidden" value="@item.EventID" />
-    }
+        <input type="hidden" name="SiteCode" value="@Model.FirstOrDefault().SiteCode" />
+        <input type="hidden" name="Tel" value="@Model.FirstOrDefault().Tel" />
+        <input type="hidden" name="City" value="@Model.FirstOrDefault().City" />
+        <input type="hidden" name="Street" value="@Model.FirstOrDefault().Street" />
+        <input type="hidden" name="SiteName" value="@Model.FirstOrDefault().SiteName" />
+        <input type="hidden" name="Website" value="@Model.FirstOrDefault().Website" />
+        <input type="hidden" name="Postcode" value="@Model.FirstOrDefault().Postcode" />
 
-    <p class="text-warning">Delete Site @Model.FirstOrDefault().SiteName?</p>
+        <div class="form-inline">
+            <p class="deleteText text-center">Delete Site @Model.FirstOrDefault().SiteName?</p>
 
-    <input class="Delete" type="submit" value="Delete" onclick="return confirmation()" />
-
-</form>
+            <input class="btn btn-danger" type="submit" value="Delete" onclick="return confirmation()" />
+        </div>
+    </form>
+</div>

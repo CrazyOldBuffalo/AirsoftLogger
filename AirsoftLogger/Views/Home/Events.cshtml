@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<AirsoftLogger.Models.Events>;
-@{ 
+@{
     ViewData["Title"] = "Events";
     Layout = "ListLayout";
 }
@@ -22,7 +22,7 @@
     </form>
 </div>
 
-@if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
+@if (User.Identity.IsAuthenticated && (User.IsInRole("Manager") || User.IsInRole("Administrator")))
 {
     <div class="adminSiteadd">
         <a class="btn btn-primary" asp-controller="CMS" asp-action="CreateEvent"> Add New Event <i class="fas fa-plus"></i></a>
@@ -58,7 +58,7 @@
                 </td>
                 <td>
                     <div class="SiteDetailsContainer">
-                        <a  class="SiteDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
+                        <a class="SiteDetails btn btn-primary" asp-controller="Home" asp-action="SiteDetails" asp-route-id="@item.SiteCode"> Details <i class="fas fa-info"></i></a>
                     </div>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Manager"))
                     {

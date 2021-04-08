@@ -60,7 +60,7 @@ namespace AirsoftLogger.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Manager")]
         [HttpGet]  
         public IActionResult DeleteEvent(int id)
         {
@@ -114,6 +114,7 @@ namespace AirsoftLogger.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpGet]
         public IActionResult DeleteSite(string id)
         {
@@ -191,7 +192,8 @@ namespace AirsoftLogger.Controllers
                 return View(modelList);
             }
         }
-        
+
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteEvent(Events Event)
@@ -201,6 +203,7 @@ namespace AirsoftLogger.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteSite(SiteDetails siteDetails)

@@ -1,34 +1,42 @@
-﻿@model AirsoftLogger.Models.AddEvent
+﻿@model AirsoftLogger.Models.AddEvent;
 @{
-    ViewData["Title"] = "CreateEvent";
+    ViewData["Title"] = "Create Event";
     Layout = "CMS";
 }
-<div class="createeventHeading text-center">
+<div class="siteHeading text-center">
     <h1>Event Creation</h1>
     <h2>Use this page to Create an event in the database</h2>
     <hr />
 </div>
-<form class="CreateEventForm" asp-controller="CMS" asp-action="CreateEvent">
-    <div class="form-group">
-        <label asp-for="SiteCode">Site Code</label>
-        <input type="text" asp-for="SiteCode" />
-        <span asp-validation-for="SiteCode" class="error"></span>
-    </div>
+<section class="CreateEvent fadeInDown container-fluid">
+    <h2 class="CreateEventTitle fadeIn First text-center" > Create A New Event: </h2>
+    <form class="CreateEventForm fadeIn Second" asp-controller="CMS" asp-action="CreateEvent">
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="SiteCode">Site Code</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="SiteCode" />
+                <span asp-validation-for="SiteCode" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="col-form-label" asp-for="Date">Date</label>
+                <input class="form-control col-sm fadeIn Third" type="date" asp-for="Date" />
+                <span asp-validation-for="Date" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="col-form-label" asp-for="Spaces">Spaces</label>
+                <input class="form-control form-control col-sm fadeIn Third" type="number" asp-for="Spaces" />
+                <span asp-validation-for="Spaces" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Date">Date</label>
-        <input type="date" asp-for="Date" />
-        <span asp-validation-for="Date" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Spaces">Spaces</label>
-        <input type="number" asp-for="Spaces" />
-        <span asp-validation-for="Spaces" class="error"></span>
-    </div>
-
-    <div>
-        <input type="submit" value="Create" class="add" />
-    </div>
-
-</form>
+    </form>
+</section>

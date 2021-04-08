@@ -3,56 +3,69 @@
     ViewData["Title"] = "Add Site";
     Layout = "CMS";
 }
-<div class="createsiteHeading text-center">
+<div class="siteHeading text-center">
     <h1>Site Creation</h1>
     <h2>Use this page to Create a Site and Associated Address to the database</h2>
     <hr />
 </div>
-<form class="CreateSiteForm" asp-controller="CMS" asp-action="CreateSite">
-    <div class="form-group">
-        <label asp-for="SiteCode">Site Code</label>
-        <input type="text" asp-for="SiteCode" />
-        <span asp-validation-for="SiteCode" class="error"></span>
-    </div>
 
-    <div class="form-group">
-        <label asp-for="SiteName">Site Name</label>
-        <input type="text" asp-for="SiteName" />
-        <span asp-validation-for="SiteName" class="error"></span>
-    </div>
+<section class="CreateSite fadeInDown container-fluid">
+    <h2 class="CreateSiteTitle fadeIn First text-center">Create New Site &amp; Address</h2>
+    <form class="CreateSiteForm fadeIn Second" asp-controller="CMS" asp-action="CreateSite">
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="SiteCode">Site Code</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="SiteCode" />
+                <span asp-validation-for="SiteCode" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="SiteName">Site Name</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="SiteName" />
+                <span asp-validation-for="SiteName" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="Postcode">Postcode</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="Postcode" />
+                <span asp-validation-for="Postcode" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="Tel">Telephone</label>
+                <input class="form-control col-sm fadeIn Third" type="tel" asp-for="Tel" />
+                <span asp-validation-for="Tel" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="Website">Website</label>
+                <input class="form-control col-sm fadeIn Third" type="url" asp-for="Website" />
+                <span asp-validation-for="Website" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="Street">Street</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="Street" />
+                <span asp-validation-for="Street" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="sitecode col-form-label" asp-for="City">City</label>
+                <input class="form-control col-sm fadeIn Third" type="text" asp-for="City" />
+                <span asp-validation-for="City" class="error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Postcode">Postcode</label>
-        <input type="text" asp-for="Postcode" />
-        <span asp-validation-for="Postcode" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Tel">Telephone</label>
-        <input type="tel" asp-for="Tel" />
-        <span asp-validation-for="Tel" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Website">Website</label>
-        <input type="url" asp-for="Website" />
-        <span asp-validation-for="Website" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Street">Street</label>
-        <input type="text" asp-for="Street" />
-        <span asp-validation-for="Street" class="error"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="City">City</label>
-        <input type="text" asp-for="City" />
-        <span asp-validation-for="City" class="error"></span>
-    </div>
-
-    <div>
-        <input type="submit" value="Create" class="add" />
-    </div>
-
-</form>
+    </form>
+</section>
