@@ -267,7 +267,6 @@ body {
     .text-center {
         padding: 2rem;
     }
-
     h1 {
         font-size: 4em;
     }
@@ -364,6 +363,21 @@ body {
 
     .SiteDeleteContainer {
         padding: 0.5rem 0 0 0;
+    }
+}
+
+.Deletecontainer {
+    padding: 2em;
+    border-radius: 10px;
+    background-color: $HeadColor;
+    color: antiquewhite;
+    width: 50%;
+    margin: auto;
+    align-content:center;
+    
+    .deleteText {
+        color: antiquewhite;
+        padding-right: 1em;
     }
 }
 .SiteTable {

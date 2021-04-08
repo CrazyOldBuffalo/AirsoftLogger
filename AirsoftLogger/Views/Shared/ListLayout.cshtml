@@ -39,7 +39,7 @@
                     </ul>
 
                 </div>
-                @if (!User.Identity.IsAuthenticated && !User.IsInRole("Manager"))
+                @if (!User.Identity.IsAuthenticated && (!User.IsInRole("Manager") || !User.IsInRole("Administrator")))
                 {
                     <div class="logincontainer">
                         <a class="btn btn-primary" asp-area="" asp-controller="Security" asp-action="Index"> Login <i class="fas fa-sign-in-alt"></i> </a>

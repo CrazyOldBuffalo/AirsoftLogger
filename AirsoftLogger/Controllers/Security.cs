@@ -17,6 +17,9 @@ namespace AirsoftLogger.Controllers
     {
         //Username: Admin
         //Password: P@s5W0rd
+
+        //Username: Mod
+        //Password: A!rs0ft
         private readonly UserManager<AppIdentityUser> userManager;
         private readonly RoleManager<AppIdentityRole> roleManager;
         private readonly SignInManager<AppIdentityUser> signInManager;
@@ -28,6 +31,41 @@ namespace AirsoftLogger.Controllers
             this.signInManager = signInManager;
         }
 
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(Admin obj)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!roleManager.RoleExistsAsync("Administrator").Result)
+                {
+                    AppIdentityRole role = new AppIdentityRole();
+                    role.Name = "Administrator";
+                    IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+                }
+
+                AppIdentityUser user = new AppIdentityUser();
+                user.UserName = obj.UserName;
+                user.Email = obj.Email;
+
+                IdentityResult result = userManager.CreateAsync(user, obj.Password).Result;
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Administrator").Wait();
+                    return RedirectToAction("SignIn", "Security");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid user Details");
+                }
+            }
+            return View(obj);
+        }
 
         public IActionResult Index()
         {
@@ -66,5 +104,7 @@ namespace AirsoftLogger.Controllers
             }
             return View(signIn);
         }
+
+
     }
 }
