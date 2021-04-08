@@ -92,7 +92,7 @@ namespace AirsoftLogger.Controllers
         {
             if(ModelState.IsValid)
             {
-                var result = signInManager.PasswordSignInAsync(signIn.UserName, signIn.Password, false, false).Result;
+                var result = signInManager.PasswordSignInAsync(signIn.UserName, signIn.Password, true, false).Result;
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
