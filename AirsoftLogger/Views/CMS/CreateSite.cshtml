@@ -15,29 +15,33 @@
         <div class="row">
             <div class="form-group">
                 <label class="sitecode col-form-label" asp-for="SiteCode">Site Code</label>
-                <input class="form-control col-sm fadeIn Third" type="text" asp-for="SiteCode" />
+                <input class="siteCode form-control col-sm fadeIn Third" type="text" asp-for="SiteCode" />
                 <span asp-validation-for="SiteCode" class="error"></span>
+                <p class="text-warning" id="sitecodewarn"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="sitecode col-form-label" asp-for="SiteName">Site Name</label>
-                <input class="form-control col-sm fadeIn Third" type="text" asp-for="SiteName" />
+                <input class="siteName form-control col-sm fadeIn Third" type="text" asp-for="SiteName" />
                 <span asp-validation-for="SiteName" class="error"></span>
+                <p class="text-warning" id="sitenamewarn"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="sitecode col-form-label" asp-for="Postcode">Postcode</label>
-                <input class="form-control col-sm fadeIn Third" type="text" asp-for="Postcode" />
+                <input class="PostCode form-control col-sm fadeIn Third" type="text" asp-for="Postcode" />
                 <span asp-validation-for="Postcode" class="error"></span>
+                <p class="text-warning" id="sitepostcodewarn"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="sitecode col-form-label" asp-for="Tel">Telephone</label>
-                <input class="form-control col-sm fadeIn Third" type="tel" asp-for="Tel" />
+                <input class="Tel form-control col-sm fadeIn Third" type="tel" asp-for="Tel" />
                 <span asp-validation-for="Tel" class="error"></span>
+                <p id="sitetelwarn"></p>
             </div>
         </div>
         <div class="row">
@@ -57,13 +61,14 @@
         <div class="row">
             <div class="form-group">
                 <label class="sitecode col-form-label" asp-for="City">City</label>
-                <input class="form-control col-sm fadeIn Third" type="text" asp-for="City" />
+                <input class="City form-control col-sm fadeIn Third" type="text" asp-for="City" />
                 <span asp-validation-for="City" class="error"></span>
+                <p class="text-warning" id="sitecitywarn"></p>
             </div>
         </div>
         <div class="row">
             <div>
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" onclick="return SiteCheck()"/>
             </div>
         </div>
 
