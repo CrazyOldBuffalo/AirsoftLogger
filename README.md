@@ -30,6 +30,8 @@ Github URL: https://github.com/CrazyOldBuffalo/AirsoftLogger
   <li> Jquery </li>
   <li> Bootstrap </li>
   <li> SCSS </li>
+  <li> FontAwesome Icons</li>
+  <li> Google Fonts - Montserrat</li>
 </ul>
 
 <hr />
