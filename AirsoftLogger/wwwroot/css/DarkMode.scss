@@ -41,7 +41,8 @@ body {
 }
 
 .header {
-    color: #c9d1d9; 
+    color: #c9d1d9;
+
     .text-center {
         .display-2 {
             font-size: 4em;
@@ -175,7 +176,7 @@ body {
 
         &:hover {
             background-color: $ThirdColor;
-            color: black;
+            color: white;
         }
     }
 }
@@ -272,7 +273,7 @@ body {
 }
 
 .DetailTable {
-    color:#c9d1d9; 
+    color: #c9d1d9;
     padding-top: 1rem;
     margin-top: 1rem;
 }
@@ -295,7 +296,8 @@ body {
 }
 
 .siteHeading {
-    color:#c9d1d9; 
+    color: #c9d1d9;
+
     .text-center {
         padding: 2rem;
     }
@@ -337,7 +339,7 @@ body {
 
             &:hover {
                 background-color: $ThirdColor;
-                color: black;
+                color: white;
             }
         }
     }
@@ -345,14 +347,15 @@ body {
 
 .SiteTableTop {
     padding: 1.5rem;
-    color:#c9d1d9;
+    color: #c9d1d9;
+
     h2 {
         font-size: 2em;
     }
 }
 
 .EventTable {
-    color: #c9d1d9; 
+    color: #c9d1d9;
     align-content: center;
     margin: auto;
     padding: 0.5rem;
@@ -382,7 +385,7 @@ body {
 
             &:hover {
                 background-color: $ThirdColor;
-                color: black;
+                color: white;
             }
         }
     }
@@ -396,7 +399,7 @@ body {
 
             &:hover {
                 background-color: #6b7152;
-                color: black;
+                color: white;
             }
         }
     }
@@ -450,7 +453,7 @@ body {
 
             &:hover {
                 background-color: $ThirdColor;
-                color: black;
+                color: white;
             }
         }
     }
@@ -464,7 +467,7 @@ body {
 
             &:hover {
                 background-color: #6b7152;
-                color: black;
+                color: white;
             }
         }
     }
@@ -496,6 +499,7 @@ body {
 
 .eventHeading {
     color: #c9d1d9;
+
     .text-center {
         padding: 2rem;
     }
@@ -514,7 +518,7 @@ body {
 }
 
 .searchEvent {
-    color: #c9d1d9; 
+    color: #c9d1d9;
     width: fit-content();
     border: solid 1px antiquewhite;
     margin: auto;
@@ -537,7 +541,7 @@ body {
 
             &:hover {
                 background-color: $ThirdColor;
-                color: black;
+                color: white;
             }
         }
     }

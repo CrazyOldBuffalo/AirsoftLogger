@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 namespace AirsoftLogger.Controllers
 {
     [Authorize(Roles = "Administrator, Manager")]
+
     public class CMS : Controller
     {
 

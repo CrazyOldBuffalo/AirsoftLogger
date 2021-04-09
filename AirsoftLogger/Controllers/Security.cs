@@ -35,7 +35,7 @@ namespace AirsoftLogger.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "Administrator, Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Register(Admin obj)
@@ -57,7 +57,7 @@ namespace AirsoftLogger.Controllers
                 if (result.Succeeded)
                 {
                     userManager.AddToRoleAsync(user, "Administrator").Wait();
-                    return RedirectToAction("SignIn", "Security");
+                    return RedirectToAction("Index", "Security");
                 }
                 else
                 {

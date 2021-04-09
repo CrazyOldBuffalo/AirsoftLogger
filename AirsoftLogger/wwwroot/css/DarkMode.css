@@ -142,7 +142,7 @@ body {
 }
 .CreateEvent .btn:hover {
   background-color: #5C5346;
-  color: black;
+  color: white;
 }
 
 .CreateSite {
@@ -281,7 +281,7 @@ body {
 }
 .searchSite .searchbuttoncontainer .searchbutton:hover {
   background-color: #5C5346;
-  color: black;
+  color: white;
 }
 
 .SiteTableTop {
@@ -317,7 +317,7 @@ body {
 }
 .EventTable .SiteDetailsContainer .SiteDetails:hover {
   background-color: #5C5346;
-  color: black;
+  color: white;
 }
 .EventTable .SiteUpdateContainer {
   padding: 0.5rem 0 0 0;
@@ -328,7 +328,7 @@ body {
 }
 .EventTable .SiteUpdateContainer .SiteUpdate:hover {
   background-color: #6b7152;
-  color: black;
+  color: white;
 }
 .EventTable .SiteDeleteContainer {
   padding: 0.5rem 0 0 0;
@@ -371,7 +371,7 @@ body {
 }
 .SiteTable .SiteDetailsContainer .SiteDetails:hover {
   background-color: #5C5346;
-  color: black;
+  color: white;
 }
 .SiteTable .SiteUpdateContainer {
   padding: 0.5rem 0 0 0;
@@ -382,7 +382,7 @@ body {
 }
 .SiteTable .SiteUpdateContainer .SiteUpdate:hover {
   background-color: #6b7152;
-  color: black;
+  color: white;
 }
 .SiteTable .SiteDeleteContainer {
   padding: 0.5rem 0 0 0;
@@ -445,7 +445,7 @@ body {
 }
 .searchEvent .searchbuttoncontainer .searchbutton:hover {
   background-color: #5C5346;
-  color: black;
+  color: white;
 }
 
 .fadeInDown {
