@@ -1,19 +1,32 @@
 ﻿function logincheck() {
+    var loginchk;
     var Password = $(".passwordinput").val();
-    var username = $(".usernameinput").val();
+    var Username = $(".usernameinput").val();
 
-    if (username == '' && Password == '') {
-        alert("Please Enter A Username & Password!")
-        return false;
+
+    if (Username == '') {
+        $("#usernamewarn").html("Please Enter A Username");
+        loginchk = false;
+    }
+    else {
+        $("#usernamewarn").html("");
     }
 
-    else if (Password == '') {
-        alert("Please Enter A Password!");
-        return false;
+
+    if (Password == '') {
+        $('#passwordwarn').html("Please Enter A Password");
+        loginchk = false;
+    }
+    else {
+        $('#passwordwarn').html("");
     }
 
-    else if (username == '') {
-        alert("Please Enter A Username!")
+
+
+    if (loginchk == false) {
         return false;
+    }
+    else {
+        return true;
     }
 }
