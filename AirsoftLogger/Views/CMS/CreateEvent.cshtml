@@ -14,27 +14,30 @@
         <div class="row">
             <div class="form-group">
                 <label class="sitecode col-form-label" asp-for="SiteCode">Site Code</label>
-                <input class="form-control col-sm fadeIn Third" type="text" asp-for="SiteCode" />
+                <input class="siteCode form-control col-sm fadeIn Third"  type="text" asp-for="SiteCode" />
                 <span asp-validation-for="SiteCode" class="error"></span>
+                <p class="text-danger" id="eventsitecodewarn"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="col-form-label" asp-for="Date">Date</label>
-                <input class="form-control col-sm fadeIn Third" type="date" asp-for="Date" />
+                <input class="Date form-control col-sm fadeIn Third" type="date" asp-for="Date" />
                 <span asp-validation-for="Date" class="error"></span>
+                <p class="text-danger" id="eventdatewarn"></p>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <label class="col-form-label" asp-for="Spaces">Spaces</label>
-                <input class="form-control form-control col-sm fadeIn Third" type="number" asp-for="Spaces" />
+                <input class="Spaces form-control form-control col-sm fadeIn Third" type="number" asp-for="Spaces" />
                 <span asp-validation-for="Spaces" class="error"></span>
+                <p class="text-danger" id="eventspaceswarn"></p>
             </div>
         </div>
         <div class="row">
             <div>
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" onclick="return EventCheck()" />
             </div>
         </div>
 
