@@ -6,7 +6,7 @@
     var postcode = $(".PostCode").val();
     var sitename = $(".siteName").val();
 
-    if (sitecode == "" || sitecode.length < 2) {
+    if (sitecode == "" || sitecode.length <= 2) {
         $("#sitecodewarn").show();
         $("#sitecodewarn").html("A Site MUST have a Valid Sitecode");
         sitecheck = false;
@@ -15,7 +15,7 @@
         $("#sitecodewarn").hide();
     }
 
-    if (city == "" || city.length < 2) {
+    if (city == "" || city.length <= 2) {
         $("#sitecitywarn").show();
         $("#sitecitywarn").html("A Site MUST have a Valid City");
         sitecheck = false;
@@ -25,7 +25,7 @@
     }
 
 
-    if (tel == "" || tel.length < 4) {
+    if (tel == "" || tel.length <= 4) {
         $("#sitetelwarn").show();
         $("#sitetelwarn").html("A Site MUST have a Valid Contact Number");
         sitecheck = false;
@@ -34,7 +34,7 @@
         $("#sitetelwarn").hide();
     }
 
-    if (postcode == "" || postcode.length < 4) {
+    if (postcode == "" || postcode.length <= 4) {
         $("#sitepostcodewarn").show();
         $("#sitepostcodewarn").html("A Site MUST have a Valid Postcode");
         sitecheck = false;
@@ -43,7 +43,7 @@
         $("#sitepostcodewarn").hide();
     }
 
-    if (sitename == "" || sitename.length < 4) {
+    if (sitename == "" || sitename.length <= 4) {
         $("#sitenamewarn").show();
         $("#sitenamewarn").html("A Site MUST have a Valid Name");
         sitecheck = false;
@@ -87,7 +87,7 @@ function EventCheck() {
         $("#eventsitecodewarn").hide();
     }
 
-    if (spaces == "" || spaces < 1) {
+    if (spaces == "" || spaces <= 1) {
         $("#eventsitecodewarn").show();
         $("#eventspaceswarn").html("Please Enter a Valid Number of Spaces");
         eventCheck = false;
