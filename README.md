@@ -49,9 +49,7 @@ Github URL: https://github.com/CrazyOldBuffalo/AirsoftLogger
 
 <h2> Video </h2>
 
-<video>
-  <src="https://youtu.be/jKxtMOYpTGQ">
-</video>
+https://youtu.be/jKxtMOYpTGQ
   
 Included in Folder
 
